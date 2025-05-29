@@ -47,7 +47,7 @@ export default function Calculator({ setPrices }: CalculatorProps) {
   }, [formData, setPrices]);
 
   return (
-    <Box maxW="500px" mx="auto">
+    <Box>
       <Box position="relative">
         <Swiper
           modules={[Navigation, Pagination]}

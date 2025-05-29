@@ -17,7 +17,7 @@ export default function CalculatorSection() {
       </Heading>
 
       <HStack justifyContent={"space-between"}>
-        <Box>
+        <Box maxW="550px">
           <Calculator setPrices={setPrices} />
         </Box>
         <Box>

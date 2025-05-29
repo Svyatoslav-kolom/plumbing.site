@@ -32,7 +32,6 @@ export const Step1 = ({ formData, setFormData }: Step1Props) => {
         Укажите вид ремонта
       </Text>
 
-
       <VStack
         textStyle="text"
         bg={"blocks.secondary"}
@@ -40,6 +39,7 @@ export const Step1 = ({ formData, setFormData }: Step1Props) => {
         py={"15px"}
         borderRadius={"10px"}
         mb={"10px"}
+        align={"start"}
       >
         <Text mb={2} alignSelf="flex-start">
           Вид ремонта:
