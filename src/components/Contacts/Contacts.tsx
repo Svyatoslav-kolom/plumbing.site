@@ -78,7 +78,7 @@ export const Contacts: React.FC<Props> = ({ onClose }) => (
         py={"20px"}
       >
         <Text textStyle={"subtitle"} alignSelf={"start"} mb={5}>
-          Мьі в соц. сетях
+          Ми в соц. мережах
         </Text>
 
         <HStack
@@ -95,10 +95,10 @@ export const Contacts: React.FC<Props> = ({ onClose }) => (
         </HStack>
 
         <HStack
-          width={"100%"}
           align={"center"}
           justify={"start"}
           gap={"30px"}
+          width={"100%"}
         >
           <IconLink icon={viber} link={""} />
 
