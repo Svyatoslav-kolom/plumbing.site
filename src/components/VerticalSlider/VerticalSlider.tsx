@@ -17,7 +17,7 @@ type VerticalSliderProps = {
 export const VerticalSlider = ({ repairDetails, onActiveChange }: VerticalSliderProps) => {
   return (
     <Flex
-      height="100vh"
+      height="100%"
       width="600px"
       overflow="hidden"
       position="relative"

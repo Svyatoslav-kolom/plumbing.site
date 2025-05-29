@@ -18,8 +18,8 @@ export const DoneRepairs = () => {
       {activeRepair && (
         <VStack
           maxW={"490px"}
-          // justifyContent={"space-between"}
-          gap={"40px"}
+          justifyContent={"space-between"}
+          height={"100%"}
         >
           <Heading
             textStyle={"pageTitle"}
