@@ -29,8 +29,8 @@ function App() {
   const onCloseContacts = () => setIsContactsOpen(false);
 
   return (
-    <>
-      <Header onOpenRegister={setIsRegisterOpen} onOpenContacts={setIsContactsOpen}/>
+    <Box zoom={0.9}>
+      <Header onOpenRegister={setIsRegisterOpen} onOpenContacts={setIsContactsOpen} />
 
       {isRegisterOpen && (
         <FadeWrapper>
@@ -98,7 +98,7 @@ function App() {
           </FadeWrapper>
         )
       }
-    </>
+    </Box>
   )
 }
 
