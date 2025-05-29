@@ -18,7 +18,7 @@ export const TeamCard: React.FC<TeamCardProps> = ({ member }) => {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <Box
+    <VStack
       bg="white"
       maxW="240px"
       w="100%"
@@ -26,11 +26,11 @@ export const TeamCard: React.FC<TeamCardProps> = ({ member }) => {
       textAlign="center"
       transition="all 0.3s ease"
       pb={"20px"}
-      minH="500px"
+      minH="530px"
     >
-      <VStack gap={3} h="100%">
+      <VStack gap={3} h="100%" justifyContent={"space-between"}>
         <Image
-          w="100%"
+          w="95%"
           h="280px"
           borderRadius="20px"
           src={member.avatarUrl}
@@ -41,6 +41,7 @@ export const TeamCard: React.FC<TeamCardProps> = ({ member }) => {
         />
 
         <VStack
+          height={"100%"}
           mx="30px"
           align="start"
           w="100%"
@@ -77,24 +78,25 @@ export const TeamCard: React.FC<TeamCardProps> = ({ member }) => {
               ))}
             </VStack>
           </Box>
-
-          <Button
-            onClick={() => setExpanded(!expanded)}
-            size="sm"
-            variant="ghost"
-            color="accent.main"
-            alignSelf="center"
-          >
-            <Image
-              src={arrowRight}
-              alt="Toggle details"
-              w={"25px"}
-              transition="transform 0.3s ease"
-              transform={expanded ? 'rotate(270deg)' : 'rotate(90deg)'}
-            />
-          </Button>
         </VStack>
       </VStack>
-    </Box>
+
+      <Button
+        onClick={() => setExpanded(!expanded)}
+        size="sm"
+        variant="ghost"
+        color="accent.main"
+        alignSelf="center"
+        mt={"auto"}
+      >
+        <Image
+          src={arrowRight}
+          alt="Toggle details"
+          w={"25px"}
+          transition="transform 0.3s ease"
+          transform={expanded ? 'rotate(270deg)' : 'rotate(90deg)'}
+        />
+      </Button>
+    </VStack>
   );
 };
