@@ -4,8 +4,8 @@ import PhoneIcon from "../../assets/icons/PhoneIcon.svg";
 import TimeIcon from "../../assets/icons/TimeIcon.svg";
 import { IconLink } from "../IconLink";
 import telegram from "../../assets/icons/SocialLinks/telegramIcon.svg";
-import viber from "../../assets/icons/SocialLinks/ViberIcon.svg";
 import facebook from "../../assets/icons/SocialLinks/facebookIcon.svg";
+import viber from "../../assets/icons/SocialLinks/viberIcon.svg";
 
 interface Props {
   onClose: () => void;
