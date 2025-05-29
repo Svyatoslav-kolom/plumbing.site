@@ -1,0 +1,70 @@
+.switch-container {
+  display: flex;
+  cursor: pointer;
+  user-select: none;
+  align-items: center;
+  transition: opacity 0.3s ease;
+}
+
+.switch-container.disabled {
+  cursor: not-allowed;
+}
+
+.switch-wrapper {
+  position: relative;
+}
+
+.switch-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch-box {
+  border-radius: 9999px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+  background-color: var(--switch-bg-off);
+  width: var(--switch-width);
+  height: var(--switch-height);
+}
+
+.switch-box.checked {
+  background-color: var(--switch-bg-on);
+}
+
+.switch-dot {
+  position: absolute;
+  top: var(--switch-top-offset);
+  left: 0;
+  border-radius: 9999px;
+  background-color: var(--dot-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  width: var(--dot-size);
+  height: var(--dot-size);
+}
+
+.switch-dot.checked {
+  transform: translateX(var(--dot-translate));
+}
+
+.switch-inner-dot {
+  border-radius: 9999px;
+  background-color: var(--inner-dot-off);
+  transition: all 0.3s ease;
+  width: calc(var(--dot-size) * 0.80);
+  height: calc(var(--dot-size) * 0.80);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.switch-inner-dot.checked {
+  background-color: var(--inner-dot-on);
+  border-color: var(--inner-border-on);
+}
