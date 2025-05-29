@@ -88,7 +88,7 @@ export const TeamCard: React.FC<TeamCardProps> = ({ member }) => {
             <Image
               src={arrowRight}
               alt="Toggle details"
-              boxSize="25px"
+              w={"25px"}
               transition="transform 0.3s ease"
               transform={expanded ? 'rotate(270deg)' : 'rotate(90deg)'}
             />
