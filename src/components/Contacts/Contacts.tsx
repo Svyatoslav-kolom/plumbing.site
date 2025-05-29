@@ -1,4 +1,4 @@
-import { CloseButton, HStack, VStack, Text, Image } from "@chakra-ui/react";
+import { CloseButton, HStack, VStack, Text, Image, Stack } from "@chakra-ui/react";
 import EmailIcon from "../../assets/icons/EmailIcon.svg";
 import PhoneIcon from "../../assets/icons/PhoneIcon.svg";
 import TimeIcon from "../../assets/icons/TimeIcon.svg";
@@ -22,14 +22,21 @@ export const Contacts: React.FC<Props> = ({ onClose }) => (
 
     <CloseButton onClick={onClose} alignSelf={"end"} />
 
-    <HStack justifyContent={"space-between"}>
+    <Stack
+      justifyContent={"space-between"}
+      direction={{ base: "column", md: "row" }}
+    >
       <VStack
         px={"35px"}
         py={"20px"}
         bg="blocks.secondary"
         borderRadius="15px"
       >
-        <Text textStyle={"subtitle"} alignSelf={"start"} mb={5}>
+        <Text
+          textStyle={"subtitle"}
+          alignSelf={"start"}
+          mb={{ base: 2, md: 5 }}
+        >
           Контакти
         </Text>
 
@@ -37,9 +44,9 @@ export const Contacts: React.FC<Props> = ({ onClose }) => (
           width={"100%"}
           align={"center"}
           justify={"start"}
-          gap={"30px"}
+          gap={{ base: "15px", md: "30px" }}
         >
-          <Image src={EmailIcon} boxSize={"50px"} />
+          <Image src={EmailIcon} boxSize={{ base: "30px", md: "50px" }} />
 
           <Text>
             poshtaremont@gmail.com
@@ -50,9 +57,12 @@ export const Contacts: React.FC<Props> = ({ onClose }) => (
           width={"100%"}
           align={"center"}
           justify={"start"}
-          gap={"30px"}
+          gap={{ base: "15px", md: "30px" }}
         >
-          <Image src={PhoneIcon} boxSize={"50px"} />
+          <Image
+            src={PhoneIcon}
+            boxSize={{ base: "30px", md: "50px" }}
+          />
 
           <Text>
             ПН-ВТ 9:00-8:00
@@ -63,9 +73,9 @@ export const Contacts: React.FC<Props> = ({ onClose }) => (
           width={"100%"}
           align={"center"}
           justify={"start"}
-          gap={"30px"}
+          gap={{ base: "15px", md: "30px" }}
         >
-          <Image src={TimeIcon} boxSize={"50px"} />
+          <Image src={TimeIcon} boxSize={{ base: "30px", md: "50px" }} />
 
           <Text>
             +09734343434
@@ -77,7 +87,11 @@ export const Contacts: React.FC<Props> = ({ onClose }) => (
         px={"35px"}
         py={"20px"}
       >
-        <Text textStyle={"subtitle"} alignSelf={"start"} mb={5}>
+        <Text
+          textStyle={"subtitle"}
+          alignSelf={"start"}
+          mb={{ base: 2, md: 5 }}
+        >
           Ми в соц. мережах
         </Text>
 
@@ -85,7 +99,7 @@ export const Contacts: React.FC<Props> = ({ onClose }) => (
           width={"100%"}
           align={"center"}
           justify={"start"}
-          gap={"30px"}
+          gap={{ base: "15px", md: "30px" }}
         >
           <IconLink icon={telegram} link={""} />
 
@@ -97,7 +111,7 @@ export const Contacts: React.FC<Props> = ({ onClose }) => (
         <HStack
           align={"center"}
           justify={"start"}
-          gap={"30px"}
+          gap={{ base: "15px", md: "30px" }}
           width={"100%"}
         >
           <IconLink icon={viber} link={""} />
@@ -111,7 +125,7 @@ export const Contacts: React.FC<Props> = ({ onClose }) => (
           width={"100%"}
           align={"center"}
           justify={"start"}
-          gap={"30px"}
+          gap={{ base: "15px", md: "30px" }}
         >
           <IconLink icon={facebook} link={""} />
 
@@ -120,6 +134,6 @@ export const Contacts: React.FC<Props> = ({ onClose }) => (
           </Text>
         </HStack>
       </VStack>
-    </HStack>
+    </Stack>
   </VStack>
 );

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './CustomSwitch.css'
 
 type CustomSwitchProps = {
-  size?: number
+  size?: number;
   checked?: boolean
   defaultChecked?: boolean
   onChange?: (checked: boolean) => void

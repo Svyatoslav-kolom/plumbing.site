@@ -22,7 +22,10 @@ export const Footer = ({ setIsPrivacyOpen, setIsTermsOpen }: FooterProps) => (
   >
     {/* Колонка 1: Logo + Social */}
     <VStack align="flex-start">
-      <Logo />
+      <Box boxSize={"186"}>
+        <Logo />
+      </Box>
+
       <HStack gap={4} pt={4}>
         <IconLink icon={telegram} link={""} />
         <IconLink icon={viber} link={""} />

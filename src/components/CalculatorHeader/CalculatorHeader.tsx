@@ -140,7 +140,11 @@ export const CalculatorHeader: React.FC = () => {
         <PriceBlock title={`${totalCost.toLocaleString('ru-RU')} $`} />
       </Box>
 
-      <Box w={"100%"} h={"64px"} mt={5}>
+      <Box
+        w={"100%"}
+        h={{ base: "54px", md: "64px" }}
+        mt={5}
+      >
         <ButtonStandart text={'Оставить заявку'} isLargeText={true} />
       </Box>
     </Box>

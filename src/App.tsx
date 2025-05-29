@@ -16,26 +16,48 @@ import { useState } from 'react';
 import { FadeWrapper } from './components/FadeWrapper';
 import { RegisterBlock } from './components/RegisterBlock';
 import { Contacts } from './components/Contacts';
+import { MobileHeader } from './components/MobileHeader';
+import { MobileHeaderMenu } from './components/MobileHeaderMenu';
 
 function App() {
   const [isTermsOpen, setIsTermsOpen] = useState(false);
   const [isPrivacyOpen, setIsPrivacyOpen] = useState(false);
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
   const [isContactsOpen, setIsContactsOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const onClosePrivacy = () => setIsPrivacyOpen(false);
   const onCloseTerms = () => setIsTermsOpen(false);
   const onCloseRegister = () => setIsRegisterOpen(false);
   const onCloseContacts = () => setIsContactsOpen(false);
+  const onCloseMenu = () => setIsMenuOpen(false);
 
   return (
     <Box zoom={0.9}>
-      <Header onOpenRegister={setIsRegisterOpen} onOpenContacts={setIsContactsOpen} />
+      <Box display={{ base: "none", md: "block" }}>
+        <Header
+          onOpenRegister={setIsRegisterOpen}
+          onOpenContacts={setIsContactsOpen}
+        />
+      </Box>
+
+      <Box display={{ base: "block", md: "none" }}>
+        <MobileHeader
+          onOpenContacts={setIsContactsOpen}
+          onOpenRegister={setIsRegisterOpen}
+          onOpenMenu={setIsMenuOpen}
+          isMenuOpen={isMenuOpen}
+        />
+      </Box>
 
       {isRegisterOpen && (
         <FadeWrapper>
           <RegisterBlock onClose={onCloseRegister} />
         </FadeWrapper>
+      )}
+
+      {isMenuOpen && (
+        <MobileHeaderMenu onCloseMenu={onCloseMenu}/>
       )}
 
       {isContactsOpen && (
@@ -45,7 +67,7 @@ function App() {
       )}
 
       <Box
-        pt={"100px"}
+        pt={{base: "30px", md:"100px"}}
         bgImage={`url(${BgImage})`}
         bgSize="cover"
       >

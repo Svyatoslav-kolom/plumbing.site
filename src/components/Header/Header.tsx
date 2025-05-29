@@ -21,12 +21,14 @@ const Header: React.FC<HeaderProps> = ({ onOpenRegister, onOpenContacts }) => {
     <Box>
       {/* Лого */}
       <Box position="absolute" top="20px" left="100px">
-        <Logo />
+        <Box boxSize={"186"}>
+          <Logo />
+        </Box>
       </Box>
 
       {/* Верхний блок */}
       <Flex
-        bg="#D3E2E4"
+        bg="layout.header"
         align="end"
         px="86px"
         h="135px"
@@ -50,7 +52,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenRegister, onOpenContacts }) => {
 
       {/* Нижний блок */}
       <Flex
-        bg="#6AB4E5"
+        bg="layout.background"
         px="44px"
         py="20px"
         align="center"

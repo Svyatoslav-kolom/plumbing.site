@@ -8,7 +8,7 @@ interface Props {
 
 export const IconLink: FC<Props> = ({ icon, link }) => (
   <Link
-    boxSize="55px"
+    boxSize={{ base: "30px", md: "50px" }}
     borderRadius="full"
     overflow="hidden"
     href={link}

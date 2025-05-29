@@ -11,8 +11,8 @@ export const ButtonStandart: FC<Props> = ({ text, onClick, isLargeText = false }
   <Button
     borderRadius="full"
     boxSizing={'border-box'}
-    px={7}
-    py={5}
+    px={{ base: "31px", md: "28px" }}
+    py={{ base: "5px", md: "20px" }}
     onClick={onClick}
     color="text.white"
     bg="accent.main"
