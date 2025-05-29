@@ -2,8 +2,8 @@ import { HStack, VStack, Text, SimpleGrid, Box } from "@chakra-ui/react";
 import { Logo } from "../Logo";
 import { IconLink } from "../IconLink";
 import telegram from "../../assets/icons/SocialLinks/telegramIcon.svg";
-import viber from "../../assets/icons/SocialLinks/ViberIcon.svg";
 import facebook from "../../assets/icons/SocialLinks/facebookIcon.svg";
+import viber from "../../assets/icons/SocialLinks/viberIcon.svg";
 import { ButtonStandart } from "../ButtonStandart";
 
 interface FooterProps {
