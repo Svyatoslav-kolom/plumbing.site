@@ -1,0 +1,22 @@
+/* doneRepairsSliderPagination.scss */
+
+.done-repairs-pagination {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+
+    .swiper-pagination-bullet {
+        width: 16px;
+        height: 16px;
+        background-color: var(--chakra-colors-blocks-secondary);
+        opacity: 1;
+        margin: 0 8px !important;
+        border-radius: 50%;
+        transition: background-color 0.3s ease;
+        cursor: pointer;
+    }
+
+    .swiper-pagination-bullet-active {
+        background-color: var(--chakra-colors-accent-main);
+    }
+}

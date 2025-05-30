@@ -101,7 +101,7 @@ function App() {
         <RegisterSection onOpenRegister={setIsRegisterOpen} />
       </Box>
 
-      <Box mx={"100px"} id="portfolio">
+      <Box mx={{ base: "0", md: "100px" }} id="portfolio">
         <DoneRepairs />
       </Box>
 
