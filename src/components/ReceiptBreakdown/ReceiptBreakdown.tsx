@@ -1,4 +1,3 @@
-// ReceiptBreakdown.tsx
 import { Box, HStack, Text } from '@chakra-ui/react';
 
 interface BreakdownItem {
@@ -16,12 +15,16 @@ export function ReceiptBreakdown({ breakdown, total }: ReceiptBreakdownProps) {
   return (
     <Box
       p={5}
-      bg="white"
       boxShadow="lg"
       borderBottomRadius="20px"
       zIndex={10}
       animation="slideUp 0.3s ease-out"
-      textStyle={"text"}
+      textStyle="text"
+      bgImage={`url(../../assets/images/check.svg)`}
+      bgSize="cover"
+      bgRepeat="no-repeat"
+      position="center"
+      bgColor="white"         // якщо фон зображення прозорий, і потрібен контраст
     >
       {breakdown.map((item, i) => (
         <HStack key={i} justifyContent="space-between" py={1}>
@@ -36,8 +39,8 @@ export function ReceiptBreakdown({ breakdown, total }: ReceiptBreakdownProps) {
         pt={2}
         borderTop="1px solid"
       >
-        <Text>ІТОГО</Text>
-        <Text>{total} грн</Text>
+        <Text fontWeight="bold">ІТОГО</Text>
+        <Text fontWeight="bold">{total} грн</Text>
       </HStack>
     </Box>
   );

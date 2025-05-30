@@ -5,11 +5,16 @@ import {
   Text,
   Button,
   Link,
+  HStack,
+  Image
 } from '@chakra-ui/react';
 import { FaPhone } from 'react-icons/fa';
 import { ButtonStandart } from '../ButtonStandart';
 import { CustomSwitch } from '../CustomSwitch';
 import { Logo } from '../Logo';
+
+import calculatorIcon from "../../assets/icons/calculatorIcon.svg";
+import contactsIcon from "../../assets/icons/contactsIcon.svg";
 
 interface HeaderProps {
   onOpenRegister: (value: boolean) => void;
@@ -20,8 +25,8 @@ const Header: React.FC<HeaderProps> = ({ onOpenRegister, onOpenContacts }) => {
   return (
     <Box>
       {/* Лого */}
-      <Box position="absolute" top="20px" left="100px">
-        <Box boxSize={"186px"}>
+      <Box position="absolute" top="20px" left={{ md: "60px", xl: "100px" }}>
+        <Box boxSize={{ md: "150px", xl: "186px" }}>
           <Logo />
         </Box>
       </Box>
@@ -33,10 +38,16 @@ const Header: React.FC<HeaderProps> = ({ onOpenRegister, onOpenContacts }) => {
         px="86px"
         h="135px"
         justify="space-between"
-        pl="350px"
-        pb="15px"
+        pl={{ md: "230px", xl: "350px" }}
+        pb={{ md: "0", xl: "15px" }}
       >
-        <Flex align="center" gap={4} mb="15px">
+        <Flex
+          align="center"
+          gap={4}
+          mb="15px"
+          direction={{ md: "column", xl: "row" }}
+          alignItems={{ md: "start", xl: "center" }}
+        >
           <Text textStyle="text">poshtaremont@gmail.com</Text>
           <Text textStyle="text">ПН-ВТ 9:00–8:00</Text>
           <Flex align="center" gap={1}>
@@ -45,9 +56,26 @@ const Header: React.FC<HeaderProps> = ({ onOpenRegister, onOpenContacts }) => {
           </Flex>
         </Flex>
 
-        <Box w="200px" h="76px">
-          <ButtonStandart text="Заявка" isLargeText={true} onClick={() => onOpenRegister(true)} />
-        </Box>
+        <HStack height={"52px"} mb={{ md: "15px", xl: "0" }} gap="15px">
+          <Box w="200px" >
+            <ButtonStandart text="Заявка" isLargeText={true} onClick={() => onOpenRegister(true)} />
+          </Box>
+
+          <Link _hover={{ textDecoration: "none", bg: "accent.dark" }} href="#calculator" height={"100%"} >
+            <Image src={calculatorIcon} height={"100%"} />
+          </Link>
+
+          <Button
+            background={"transparent"}
+            onClick={() => onOpenContacts(true)}
+            p={0}
+            height={"100%"}
+          >
+            <Image src={contactsIcon} boxSize="40px" height={"100%"} />
+          </Button>
+
+        </HStack>
+
       </Flex>
 
       {/* Нижний блок */}
@@ -57,7 +85,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenRegister, onOpenContacts }) => {
         py="20px"
         align="center"
         wrap="wrap"
-        pl="350px"
+        pl={{ md: "230px", xl: "350px" }}
         textStyle="text"
       >
         <Flex gap={4} align="center" flexWrap="wrap">
@@ -74,6 +102,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenRegister, onOpenContacts }) => {
             color="text.white"
             bg="accent.main"
             _hover={{ textDecoration: "none", bg: "accent.dark" }}
+            display={{ md: "none", xl: "block" }}
           >
             Расчет
           </Link>
@@ -85,6 +114,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenRegister, onOpenContacts }) => {
             color="text.white"
             bg="accent.main"
             onClick={() => onOpenContacts(true)}
+            display={{ md: "none", xl: "block" }}
           >
             Контакты
           </Button>

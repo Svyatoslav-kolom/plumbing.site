@@ -28,6 +28,7 @@ export const TeamCard: React.FC<TeamCardProps> = ({ member }) => {
       pb={"20px"}
       minH={{ base: "auto", md: "530px" }}
       direction="column"
+      // justifyContent={"space-between"}
       boxShadow="sm"
     >
       <Box
@@ -85,7 +86,7 @@ export const TeamCard: React.FC<TeamCardProps> = ({ member }) => {
         </Box>
       </VStack>
 
-      <Box height={"43"} w={"133px"} alignSelf={"center"}>
+      <Box height={"43px"} w={"133px"} mt={"auto"} alignSelf={"center"}>
         <ButtonStandart
           text={expanded ? "Кратко" : "Детальней"}
           onClick={() => setExpanded(!expanded)}

@@ -39,21 +39,11 @@ export default function Calculator({ setPrices }: CalculatorProps) {
   });
 
   const swiperRef = useRef<any>(null);
-
-  // Визначаємо чи мобільний пристрій
+  const [activeIndex, setActiveIndex] = useState(0);
   const isMobile = useBreakpointValue({ base: true, md: false });
   const isTouchMoveRaw = useBreakpointValue({ base: true, md: false });
   const isTouchMove = isTouchMoveRaw === undefined ? true : isTouchMoveRaw;
 
-  useEffect(() => {
-    if (swiperRef.current) {
-      swiperRef.current.allowTouchMove = isTouchMove;
-    }
-  }, [isTouchMove]);
-
-
-
-  // Формуємо кроки в залежності від пристрою
   const steps = [
     Step1,
     ...(isMobile ? [Step1_5Mobile] : []),
@@ -61,6 +51,14 @@ export default function Calculator({ setPrices }: CalculatorProps) {
     Step3,
     Step4,
   ];
+
+  const totalSlides = steps.length;
+
+  useEffect(() => {
+    if (swiperRef.current) {
+      swiperRef.current.allowTouchMove = isTouchMove;
+    }
+  }, [isTouchMove]);
 
   useEffect(() => {
     const newPrices = calculatePrices(formData);
@@ -75,8 +73,12 @@ export default function Calculator({ setPrices }: CalculatorProps) {
           spaceBetween={50}
           slidesPerView={1}
           pagination={{ clickable: true }}
-          onSwiper={(swiper) => (swiperRef.current = swiper)}
-          loop={true}
+          loop={false} // 🔁 ВИМКНЕНО
+          onSwiper={(swiper) => {
+            swiperRef.current = swiper;
+            setActiveIndex(swiper.activeIndex);
+          }}
+          onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
           allowTouchMove={isTouchMove}
         >
           {steps.map((StepComponent, index) => (
@@ -109,10 +111,20 @@ export default function Calculator({ setPrices }: CalculatorProps) {
           transform="translateY(-50%)"
           zIndex={10}
         >
-          <Box as="button" onClick={() => swiperRef.current?.slidePrev()} cursor="pointer">
+          <Box
+            as="button"
+            onClick={() => swiperRef.current?.slidePrev()}
+            cursor={activeIndex === 0 ? "not-allowed" : "pointer"}
+            opacity={activeIndex === 0 ? 0 : 1}
+          >
             <Image src={ArrowRight} transform="scaleX(-1)" />
           </Box>
-          <Box as="button" onClick={() => swiperRef.current?.slideNext()} cursor="pointer">
+          <Box
+            as="button"
+            onClick={() => swiperRef.current?.slideNext()}
+            cursor={activeIndex === totalSlides - 1 ? "not-allowed" : "pointer"}
+            opacity={activeIndex === totalSlides - 1 ? 0 : 1}
+          >
             <Image src={ArrowRight} />
           </Box>
         </HStack>

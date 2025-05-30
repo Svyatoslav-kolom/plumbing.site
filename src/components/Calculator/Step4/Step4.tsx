@@ -37,6 +37,7 @@ export default function Step4({ formData, setFormData }: Step4Props) {
           borderRadius={"10px"}
           mb={"10px"}
           w={"100%"}
+          alignItems={"start"}
         >
 
           <Text mb={2} alignSelf="flex-start">
@@ -84,6 +85,7 @@ export default function Step4({ formData, setFormData }: Step4Props) {
           borderRadius={"10px"}
           mb={"10px"}
           w={"100%"}
+          alignItems={"start"}
         >
 
           <Text mb={2} alignSelf="flex-start">

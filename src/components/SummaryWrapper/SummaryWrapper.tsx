@@ -48,6 +48,7 @@ export default function SummaryWrapper({ prices }: Props) {
           zIndex={1}
           animation={`${isVisible ? slideDown : slideUp} 0.5s ease-out`}
           w={"80%"}
+
         >
           <ReceiptBreakdown
             breakdown={prices.breakdown}

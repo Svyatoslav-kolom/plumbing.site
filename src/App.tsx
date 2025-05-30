@@ -117,7 +117,6 @@ function App() {
             )`,
         }}
         id="masters"
-
       >
         <Team />
       </Box>
