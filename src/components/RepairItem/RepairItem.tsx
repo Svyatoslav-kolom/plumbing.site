@@ -28,8 +28,6 @@ interface Props {
 // Просто створюємо Motion компоненти
 const MotionBox = motion.div
 
-
-
 export const RepairItem: FC<Props> = ({
   imageSrc,
   title,
@@ -49,6 +47,7 @@ export const RepairItem: FC<Props> = ({
       }, 0) // трохи затримки після анімації
     }
   }, [isExpanded])
+
   return (
     <VStack
       w="100%"
@@ -90,12 +89,15 @@ export const RepairItem: FC<Props> = ({
           color="accent.main"
           textAlign="center"
           w="100%"
-          mt={isExpanded ? 2 : 4}
+          mt={isExpanded ? 0 : 4}
         >
           {title}
         </Heading>
-
-        <Text textStyle="text">
+        
+        <Text
+          textStyle="text"
+          display={{ base: isExpanded ? "none" : "block", md: "block" }}
+        >
           {description}
         </Text>
 

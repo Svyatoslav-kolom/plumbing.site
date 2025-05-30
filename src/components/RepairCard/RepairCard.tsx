@@ -27,16 +27,24 @@ export const RepairCard: FC<RepairCardProps> = ({
     <Flex
       direction="column"
       borderRadius="md"
-      p={4}
-      gap={6}
+      p={{ base: "0", md: 4 }}
       w="100%"
     >
-      <Flex flexWrap="wrap" gap={6}>
+      <Flex
+        flexWrap="wrap"
+        gap={{ base: "10px", md: 6 }}
+      >
         {sections.map((section, idx) => (
           <Box
             key={idx}
             flexBasis={{ base: "100%", md: "calc(50% - 12px)" }}
             flexGrow={1}
+            textStyle="text"
+            bg={{ base: "blocks.secondary", md: "transparent" }}
+            px={{ base: "15px", md: "0" }}
+            py={{ base: "15px", md: "0" }}
+            borderRadius={{ base: "10px", md: "0" }}
+            mb={{ base: "10px", md: "0" }}
           >
             <Text textStyle="subtitle" mb={2}>
               {section.category}
@@ -57,6 +65,7 @@ export const RepairCard: FC<RepairCardProps> = ({
 
         <Box
           flexBasis={{ base: "100%", md: "calc(50% - 12px)" }}
+          display={{ base: "none", md: "block" }}
           p={4}
           borderRadius="md"
         >
