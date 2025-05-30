@@ -1,1 +1,1 @@
-export * from './Step15Mobile.tsx';
+export * from './Step1_5Mobile.tsx';
