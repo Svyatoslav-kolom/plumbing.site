@@ -32,7 +32,7 @@ export default function SummaryWrapper({ prices }: Props) {
 
   return (
     <Box position="relative" overflow="visible">
-      <Box zIndex={2} position="relative">
+      <Box zIndex={2} position="relative" w={"100%"}>
         <SummaryBox
           prices={prices}
           onToggleReceipt={() => setVisible((prev) => !prev)}

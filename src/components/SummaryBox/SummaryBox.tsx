@@ -14,17 +14,18 @@ export default function SummaryBox({ prices, onToggleReceipt }: Props) {
   return (
     <VStack
       borderRadius="15px"
-      px="40px"
+      px={{ base: "20px", md: "40px" }}
       py="30px"
       bg="blocks.main"
       position="relative"
       overflow="visible"
       zIndex={1}
+       w="100%"
     >
       <Text textStyle="blockTitle">Розрахунок вартості</Text>
 
-      <VStack gap="10px">
-        <HStack>
+      <VStack gap="10px" w="100%">
+        <HStack w="100%">
           <Box
             textAlign="center"
             px="22px"

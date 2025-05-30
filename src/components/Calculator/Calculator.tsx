@@ -1,4 +1,4 @@
-import { Box, HStack, Image } from '@chakra-ui/react';
+import { Box, HStack, Image, useBreakpointValue } from '@chakra-ui/react';
 import { useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
@@ -17,6 +17,7 @@ import Step2 from './Step2/Step2';
 import Step3 from './Step3/Step3';
 import Step4 from './Step4/Step4';
 import { calculatePrices } from '../../utils/calcPrice';
+import { Step1_5Mobile } from './Step1_5Mobile/Step1_5Mobile';
 
 interface CalculatorProps {
   setPrices: React.Dispatch<React.SetStateAction<{
@@ -39,7 +40,17 @@ export default function Calculator({ setPrices }: CalculatorProps) {
 
   const swiperRef = useRef<any>(null);
 
-  const steps = [Step1, Step2, Step3, Step4];
+  // Визначаємо чи мобільний пристрій
+  const isMobile = useBreakpointValue({ base: true, md: false });
+
+  // Формуємо кроки в залежності від пристрою
+  const steps = [
+    Step1,
+    ...(isMobile ? [Step1_5Mobile] : []),
+    Step2,
+    Step3,
+    Step4,
+  ];
 
   useEffect(() => {
     const newPrices = calculatePrices(formData);
@@ -62,9 +73,9 @@ export default function Calculator({ setPrices }: CalculatorProps) {
             <SwiperSlide key={index}>
               <Box
                 bg="blocks.main"
-                pt="10px"
+                pt={{base: "20px", md: "10px"}}
                 pb="30px"
-                px="60px"
+                px={{base: "20px", md: "60px"}}
                 borderRadius="15px"
                 h="480px"
               >

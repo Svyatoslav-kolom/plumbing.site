@@ -122,7 +122,11 @@ function App() {
         <Team />
       </Box>
 
-      <Box mx={"100px"} mt={"150px"} id='calculator'>
+      <Box
+        mx={{ base: 0, md: "100px" }}
+        mt={{ base: "30px", md: "150px" }}
+        id='calculator'
+      >
         <CalculatorSection />
       </Box>
 

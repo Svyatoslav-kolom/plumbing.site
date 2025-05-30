@@ -18,28 +18,27 @@ const houseTypeItems = [
   { value: 'new', label: 'Новостройка' },
   { value: 'secondary', label: 'Вторичное жилье' },
   { value: 'cottage', label: 'Коттедж или таунхаус' },
-  // { value: 'designer', label: 'Дизайнерский' },
 ];
 
 export const Step1 = ({ formData, setFormData }: Step1Props) => {
   return (
     <Box>
       <Text
-        textStyle={"blockTitle"}
+        textStyle="blockTitle"
         mb={4}
-        textAlign={"center"}
+        textAlign="center"
       >
         Укажите вид ремонта
       </Text>
 
       <VStack
         textStyle="text"
-        bg={"blocks.secondary"}
-        px={"30px"}
-        py={"15px"}
-        borderRadius={"10px"}
-        mb={"10px"}
-        align={"start"}
+        bg="blocks.secondary"
+        px="30px"
+        py="15px"
+        borderRadius="10px"
+        mb="10px"
+        align="start"
       >
         <Text mb={2} alignSelf="flex-start">
           Вид ремонта:
@@ -52,10 +51,9 @@ export const Step1 = ({ formData, setFormData }: Step1Props) => {
               repairType: details.value as RepairType,
             }))
           }
-
           value={formData.repairType || ''}
         >
-          <SimpleGrid columns={2} gap={4}>
+          <SimpleGrid columns={{base: 1, md: 2}} gap={4}>
             {repairTypeItems.map((item) => {
               const isActive = formData.repairType === item.value;
 
@@ -63,12 +61,12 @@ export const Step1 = ({ formData, setFormData }: Step1Props) => {
                 <RadioGroup.Item key={item.value} value={item.value}>
                   <RadioGroup.ItemHiddenInput />
                   <RadioGroup.ItemIndicator
-                    boxSize={"30px"}
-                    boxSizing={"border-box"}
-                    border={"7px solid"}
+                    boxSize="30px"
+                    boxSizing="border-box"
+                    border="7px solid"
                     borderColor={isActive ? 'accent.main' : 'layout.dark'}
-                    bg={"white"}
-                    cursor={"pointer"}
+                    bg="white"
+                    cursor="pointer"
                   />
                   <RadioGroup.ItemText textStyle="text">{item.label}</RadioGroup.ItemText>
                 </RadioGroup.Item>
@@ -78,28 +76,27 @@ export const Step1 = ({ formData, setFormData }: Step1Props) => {
         </RadioGroup.Root>
       </VStack>
 
+      {/* Секція типу житла — видима тільки на md і більше */}
       <VStack
+        display={{ base: 'none', md: 'flex' }}
         textStyle="text"
-        bg={"blocks.secondary"}
-        px={"30px"}
-        py={"15px"}
-        borderRadius={"10px"}
+        bg="blocks.secondary"
+        px="30px"
+        py="15px"
+        borderRadius="10px"
       >
         <Text mb={2} alignSelf="flex-start">
           Тип жилья:
         </Text>
 
         <RadioGroup.Root
-          defaultValue="1"
           onValueChange={(housing) =>
             setFormData((prev) => ({
               ...prev,
               housingType: housing.value as HousingType,
             }))
           }
-
           value={formData.housingType || ''}
-          colorPalette="orange"
         >
           <SimpleGrid columns={2} gap={4}>
             {houseTypeItems.map((item) => {
@@ -109,22 +106,20 @@ export const Step1 = ({ formData, setFormData }: Step1Props) => {
                 <RadioGroup.Item key={item.value} value={item.value}>
                   <RadioGroup.ItemHiddenInput />
                   <RadioGroup.ItemIndicator
-                    boxSize={"30px"}
-                    boxSizing={"border-box"}
-                    border={"7px solid"}
+                    boxSize="30px"
+                    boxSizing="border-box"
+                    border="7px solid"
                     borderColor={isActive ? 'accent.main' : 'layout.dark'}
-                    bg={"white"}
-                    cursor={"pointer"}
+                    bg="white"
+                    cursor="pointer"
                   />
                   <RadioGroup.ItemText textStyle="text">{item.label}</RadioGroup.ItemText>
                 </RadioGroup.Item>
               );
-
-
             })}
           </SimpleGrid>
         </RadioGroup.Root>
       </VStack>
     </Box>
   );
-}
+};
