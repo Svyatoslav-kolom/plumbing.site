@@ -42,6 +42,16 @@ export default function Calculator({ setPrices }: CalculatorProps) {
 
   // Визначаємо чи мобільний пристрій
   const isMobile = useBreakpointValue({ base: true, md: false });
+  const isTouchMoveRaw = useBreakpointValue({ base: true, md: false });
+  const isTouchMove = isTouchMoveRaw === undefined ? true : isTouchMoveRaw;
+
+  useEffect(() => {
+    if (swiperRef.current) {
+      swiperRef.current.allowTouchMove = isTouchMove;
+    }
+  }, [isTouchMove]);
+
+
 
   // Формуємо кроки в залежності від пристрою
   const steps = [
@@ -67,19 +77,23 @@ export default function Calculator({ setPrices }: CalculatorProps) {
           pagination={{ clickable: true }}
           onSwiper={(swiper) => (swiperRef.current = swiper)}
           loop={true}
-          allowTouchMove={false}
+          allowTouchMove={isTouchMove}
         >
           {steps.map((StepComponent, index) => (
             <SwiperSlide key={index}>
               <Box
                 bg="blocks.main"
-                pt={{base: "20px", md: "10px"}}
+                pt={{ base: "20px", md: "10px" }}
                 pb="30px"
-                px={{base: "20px", md: "60px"}}
+                px={{ base: "20px", md: "60px" }}
                 borderRadius="15px"
                 h="480px"
               >
-                <StepComponent formData={formData} setFormData={setFormData} />
+                <StepComponent
+                  formData={formData}
+                  setFormData={setFormData}
+                  swiperRef={swiperRef}
+                />
               </Box>
             </SwiperSlide>
           ))}
