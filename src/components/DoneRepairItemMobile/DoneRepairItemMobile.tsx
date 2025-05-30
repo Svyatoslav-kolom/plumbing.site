@@ -1,4 +1,4 @@
-import { Box, Heading, HStack, Image, Text, VStack } from "@chakra-ui/react";
+import { Box, Heading, HStack, Image, SimpleGrid, Stack, Text } from "@chakra-ui/react";
 import type { FC } from "react";
 import type { RepairDetails } from "../DoneRepairs/completedRepairs";
 import defaultImage from "../../assets/images/CompletedRepairs/Default.png";
@@ -46,12 +46,12 @@ export const DoneRepairItemMobile: FC<Props> = ({
   ];
 
   return (
-    <Box 
+    <Box
       bg={"blocks.main"}
       px={"30px"}
       py="20px"
       borderRadius={"20px"}
-      >
+    >
       <Heading
         textStyle="blockTitle"
         fontWeight={400}
@@ -69,10 +69,12 @@ export const DoneRepairItemMobile: FC<Props> = ({
         borderTopRadius="20px"
       />
 
-      <VStack
+      <Stack
         gap={"10px"}
-        alignItems={"start"}
+        alignItems="start"
+        justifyContent={"center"}
         mt={"10px"}
+        flexDirection={{ base: "column", md: "row" }}
       >
         {infoItems.map((item) => {
           let content: string = "";
@@ -93,38 +95,38 @@ export const DoneRepairItemMobile: FC<Props> = ({
               borderRadius="md"
               gap={2}
             >
-              <Image src={item.icon} alt="" w={"30px"}/>
+              <Image src={item.icon} alt="" w={"30px"} />
               <Text textStyle="text">{content}</Text>
             </HStack>
           );
         })}
-      </VStack>
+      </Stack>
 
       <Text textStyle="text" mt={"20px"}>{description}</Text>
 
-      <VStack
+      <SimpleGrid
+        columns={{ base: 1, md: 2 }}
+        w="100%"
         bg="blocks.secondary"
         borderRadius="15px"
-        w="100%"
-        align="start"
         p="10px"
-        mt={"20px"}
-
+        mt="20px"
       >
         {repairFeatures.map((feature, index) => (
-          <HStack key={`$-feature-${index}`} align="start" gap="8px">
+          <HStack key={`feature-${index}`} align="start" gap="8px">
             <Box
               boxSize="10px"
               bg="accent.main"
               borderRadius="full"
               mt="6px"
+              minW="10px"
             />
             <Text textStyle="text" color="text.black">
               {feature}
             </Text>
           </HStack>
         ))}
-      </VStack>
+      </SimpleGrid>
 
       <Box w={"100%"} height={"64px"} mt={"20px"}>
         <ButtonStandart text={"Рассчитать стоимость похожего проекта"} />

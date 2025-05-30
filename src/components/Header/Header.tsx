@@ -61,7 +61,12 @@ const Header: React.FC<HeaderProps> = ({ onOpenRegister, onOpenContacts }) => {
             <ButtonStandart text="Заявка" isLargeText={true} onClick={() => onOpenRegister(true)} />
           </Box>
 
-          <Link _hover={{ textDecoration: "none", bg: "accent.dark" }} href="#calculator" height={"100%"} >
+          <Link
+            _hover={{ textDecoration: "none", bg: "accent.dark" }}
+            href="#calculator"
+            height={"100%"}
+            display={{ md: "block", xl: "none" }}
+          >
             <Image src={calculatorIcon} height={"100%"} />
           </Link>
 
@@ -70,6 +75,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenRegister, onOpenContacts }) => {
             onClick={() => onOpenContacts(true)}
             p={0}
             height={"100%"}
+            display={{ md: "block", xl: "none" }}
           >
             <Image src={contactsIcon} boxSize="40px" height={"100%"} />
           </Button>

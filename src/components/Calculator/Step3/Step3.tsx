@@ -33,7 +33,7 @@ export default function Step3({ formData, setFormData }: Step3Props) {
       <VStack
         textStyle="text"
         bg={"blocks.secondary"}
-        px={{base: "20px", md: "30px"}}
+        px={{ base: "20px", md: "30px" }}
         py={"15px"}
         borderRadius={"10px"}
         mb={"10px"}
@@ -86,7 +86,7 @@ export default function Step3({ formData, setFormData }: Step3Props) {
       <Box
         textStyle="text"
         bg={"blocks.secondary"}
-        px={{base: "20px", md: "30px"}}
+        px={{ base: "20px", md: "30px" }}
         py={"15px"}
         borderRadius={"10px"}
         mb={"10px"}
@@ -99,9 +99,9 @@ export default function Step3({ formData, setFormData }: Step3Props) {
             <Button
               borderRadius={"full"}
               boxSizing={'border-box'}
-              boxSize={"60px"}
+              boxSize={{ base: "50px", md: "60px" }}
               bg={"white"}
-              border={"7px solid" }
+              border={"7px solid"}
               color={"text.grayDark"}
               borderColor={formData.rooms === num ? "accent.main" : "layout.dark"}
               key={num}

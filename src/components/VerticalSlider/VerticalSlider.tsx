@@ -1,26 +1,29 @@
-import { Box, Flex } from '@chakra-ui/react';
+import { Box, Flex, useBreakpointValue } from '@chakra-ui/react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Mousewheel, Pagination } from 'swiper/modules';
+import { Mousewheel } from 'swiper/modules';
 // @ts-ignore
 import 'swiper/css';
 // @ts-ignore
 import 'swiper/css/pagination';
 import { DoneRepairItem } from '../DoneRepairItem';
-import type { RepairDetails } from '../DoneRepairs/completedRepairs';
+import { DoneRepairItemMobile } from '../DoneRepairItemMobile';
+import type { RepairFeature } from '../DoneRepairs/completedRepairs';
 
 type VerticalSliderProps = {
-  repairDetails: RepairDetails[];
+  repairDetails: RepairFeature[]; // ← тут замінили тип
   onActiveChange?: (id: number) => void;
 };
 
-
 export const VerticalSlider = ({ repairDetails, onActiveChange }: VerticalSliderProps) => {
+  const isMobile = useBreakpointValue({ base: true, md: true, xl: false }); // true для md і нижче
+
   return (
     <Flex
       height="100%"
-      width="600px"
+      width="100%"
       overflow="hidden"
       position="relative"
+      // height="100vh"
     >
       <Box flex="1" overflow="hidden">
         <Swiper
@@ -30,7 +33,7 @@ export const VerticalSlider = ({ repairDetails, onActiveChange }: VerticalSlider
           centeredSlides={true}
           mousewheel={true}
           loop={true}
-          modules={[Mousewheel, Pagination]}
+          modules={[Mousewheel]}
           className="custom-swiper"
           pagination={{ clickable: true }}
           style={{ height: '100%' }}
@@ -42,19 +45,30 @@ export const VerticalSlider = ({ repairDetails, onActiveChange }: VerticalSlider
             }
           }}
         >
-          {repairDetails.map((detail) => (
-            <SwiperSlide key={detail.id}>
-              {({ isActive }) => (
-                <DoneRepairItem
-                  image={detail.imageUrl}
-                  duration={detail.duration}
-                  price={detail.price}
-                  square={detail.square}
-                  showDetails={isActive}
-                />
-              )}
+          {repairDetails.map(({ details, ...feature }) => (
+            <SwiperSlide key={details.id}>
+              {({ isActive }) =>
+                isMobile ? (
+                  <DoneRepairItemMobile
+                    title={feature.title}
+                    image={details.imageUrl}
+                    description={feature.description}
+                    repairFeatures={feature.repairFeatures}
+                    repairDetails={details}
+                  />
+                ) : (
+                  <DoneRepairItem
+                    image={details.imageUrl}
+                    duration={details.duration}
+                    price={details.price}
+                    square={details.square}
+                    showDetails={isActive}
+                  />
+                )
+              }
             </SwiperSlide>
           ))}
+
         </Swiper>
       </Box>
 
@@ -73,36 +87,27 @@ export const VerticalSlider = ({ repairDetails, onActiveChange }: VerticalSlider
           filter: none;
         }
 
-        .custom-swiper .swiper-slide-prev {
-          transform:  scaleX(0.5) scaleY(0.35);
-          z-index: 1;
-        }
-
+        .custom-swiper .swiper-slide-prev,
         .custom-swiper .swiper-slide-next {
-          transform:  scaleX(0.5) scaleY(0.35);
+          transform: scaleX(0.5) scaleY(0.35);
+          opacity: 0.7;
           z-index: 1;
         }
 
-          .custom-swiper .swiper-slide-prev,
-          .custom-swiper .swiper-slide-next {
-            opacity: 0.7;
-            z-index: 1;
-          }
-            
-        .swiper-pagination-bullet {
-          width: 12px;
-          height: 12px;
-          background-color: var(--chakra-colors-blocks-secondary);
-          opacity: 1;
-          border-radius: 50%;
-          cursor: pointer;
-          transition: background-color 0.3s;
-          margin: 6px 0;
-        }
+        // .swiper-pagination-bullet {
+        //   width: 12px;
+        //   height: 12px;
+        //   background-color: var(--chakra-colors-blocks-secondary);
+        //   opacity: 1;
+        //   border-radius: 50%;
+        //   cursor: pointer;
+        //   transition: background-color 0.3s;
+        //   margin: 6px 0;
+        // }
 
-        .swiper-pagination-bullet-active {
-          background-color: var(--chakra-colors-accent-main);
-        }
+        // .swiper-pagination-bullet-active {
+        //   background-color: var(--chakra-colors-accent-main);
+        // }
       `}</style>
     </Flex>
   );

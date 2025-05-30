@@ -33,7 +33,9 @@ function App() {
   const onCloseMenu = () => setIsMenuOpen(false);
 
   return (
-    <Box zoom={0.9}>
+    <Box
+    // zoom={0.9}
+    >
       <Box display={{ base: "none", md: "block" }}>
         <Header
           onOpenRegister={setIsRegisterOpen}
@@ -123,7 +125,7 @@ function App() {
 
       <Box
         mx={{ base: 0, md: "100px" }}
-        mt={{ base: "30px", md: "150px" }}
+        mt={{ base: "30px", xl: "150px" }}
         id='calculator'
       >
         <CalculatorSection />

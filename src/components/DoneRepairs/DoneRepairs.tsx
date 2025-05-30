@@ -63,15 +63,20 @@ export const DoneRepairs = () => {
   // 🖥️ Десктопна версія
   return (
     <Stack
-      flexDirection="row"
+      flexDirection={{ md: "column", xl: "row" }}
       justifyContent="space-between"
-      height="100vh"
+      h={{ md: "70vh", lg: "100vh" }}
     >
+      <Heading textStyle={"pageTitle"} display={{ md: "block", xl: "none" }}>
+        Выполненые ремонты
+      </Heading>
+
       {activeRepair && (
         <VStack
           maxW={"490px"}
           justifyContent={"space-between"}
           height={"100%"}
+          display={{ md: "none", xl: "flex" }}
         >
           <Heading textStyle={"pageTitle"}>
             Выполненые ремонты
@@ -87,9 +92,10 @@ export const DoneRepairs = () => {
       )}
 
       <VerticalSlider
-        repairDetails={completedRepairs.map(r => r.details)}
+        repairDetails={completedRepairs}
         onActiveChange={setActiveId}
       />
+
     </Stack>
   );
 };

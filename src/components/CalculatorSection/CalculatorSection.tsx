@@ -19,15 +19,19 @@ export default function CalculatorSection() {
 
       <Stack
         justifyContent={"space-between"}
-        direction={{ base: "column", md: "row" }}
+        direction={{ base: "column", xl: "row" }}
       >
         <Box
-          maxW={{ base: "100%", md: "550px" }}
+          maxW={{ base: "100%", xl: "550px" }}
           px={{ base: "30px", md: 0 }}
         >
           <Calculator setPrices={setPrices} />
         </Box>
-        <Box px={{ base: "10px", md: 0 }}  w={{base: "100%", md: "35%"}}>
+        <Box
+          px={{ base: "10px", md: 0 }}
+          w={{ base: "100%", md: "90%", xl: "35%" }}
+          alignSelf={"center"}
+        >
           <SummaryWrapper prices={prices} />
         </Box>
       </Stack>

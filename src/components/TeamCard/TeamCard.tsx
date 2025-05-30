@@ -20,13 +20,13 @@ export const TeamCard: React.FC<TeamCardProps> = ({ member }) => {
   return (
     <Stack
       bg="white"
-      maxW={{ base: "100%", md: "240px" }}
+      maxW={{ base: "100%", md: "40%", xl: "240px" }}
       w="100%"
       borderRadius="20px"
       textAlign="center"
       transition="all 0.3s ease"
       pb={"20px"}
-      minH={{ base: "auto", md: "530px" }}
+      minH={{ base: "auto", md: "250px", xl: "530px" }}
       direction="column"
       // justifyContent={"space-between"}
       boxShadow="sm"

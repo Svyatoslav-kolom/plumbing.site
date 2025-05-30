@@ -50,12 +50,14 @@ export const DoneRepairItem: FC<Props> = ({
       borderRadius="20px"
       overflow="hidden"
       w={"98%"}
+
     >
       <Image
         src={image}
         alt="repair"
         objectFit="cover"
         w="100%"
+        maxH={"400px"}
         onError={fallbackImage}
         borderTopRadius="20px"
       />

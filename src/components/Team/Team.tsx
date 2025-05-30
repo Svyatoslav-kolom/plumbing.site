@@ -4,14 +4,14 @@ import { TeamCard } from "../TeamCard";
 
 export const Team = () => (
   <Box
-    height={{base: "auto", md:"120vh"}}
+    height={{ base: "auto", md: "100vh", xl: "120vh" }}
     p={6}
   >
     <Heading
       textStyle={"pageTitle"}
       mb={6}
       maxW={"800px"}
-      ml={{base: "auto", md: "100px"}}
+      ml={{ base: "auto", md: "100px" }}
     >
       Наши мастера
     </Heading>
@@ -19,7 +19,7 @@ export const Team = () => (
     <Flex
       flexWrap="wrap"
       justify="center"
-      gap={{base:"20px", md: "60px"}}
+      gap={{ base: "20px", md: "60px" }}
       mx="auto"
       align="flex-start"
     >
