@@ -1,10 +1,15 @@
 import type { RepairItem } from "../../types/RepairItem";
 
+import design from "../../assets/images/TypesOfRepairs/design.jpg";
+import cosmetic from "../../assets/images/TypesOfRepairs/cosmetic.webp";
+import capital from "../../assets/images/TypesOfRepairs/capital.jpg";
+import rough from "../../assets/images/TypesOfRepairs/rough.jpg";
+
 export const repairs: RepairItem[] = [
   {
     id: "design",
     title: "Дизайнерский ремонт",
-    image: "/images/repairs/design.jpg",
+    image: design,
     description: "Дизайнерский ремонт — решение под ключ, отражённое в разработанном дизайн-проекте. Точное исполнение по проекту.",
     price: 13500,
     repairTime: 3,
@@ -48,7 +53,7 @@ export const repairs: RepairItem[] = [
   {
     id: "cosmetic",
     title: "Косметический ремонт",
-    image: "/images/repairs/cosmetic.jpg",
+    image: cosmetic,
     description: "Подходит, чтобы полностью освежить квартиру: заменить трубы, электрику, выровнять стены, покрасить или поклеить обои, уложить плитку и заменить сантехнику в ванной.",
     price: 4500,
     repairTime: 1.5,
@@ -93,7 +98,7 @@ export const repairs: RepairItem[] = [
   {
     id: "capital",
     title: "Капитальный ремонт",
-    image: "/images/repairs/capital.jpg",
+    image: capital,
     description: "Подходит, чтобы полностью отремонтировать квартиру под ключ: заменить трубы, электрику, выровнять стены, покрасить или поклеить обои, уложить плитку и заменить сантехнику в ванной.",
     price: 9500,
     repairTime: 2.5,
@@ -138,7 +143,7 @@ export const repairs: RepairItem[] = [
   {
     id: "rough",
     title: "Черновой ремонт",
-    image: "/images/repairs/rough.jpg",
+    image: rough,
     description: "Предусматривает выполнение работ по подготовке комнат к финишной и чистовой отделке.",
     price: 5700,
     repairTime: 2,

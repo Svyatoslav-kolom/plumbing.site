@@ -14,6 +14,12 @@ export type RepairFeature = {
     details: RepairDetails;
 };
 
+import repairModernApartment from "../../assets/images/DoneRepairs/repair-modern-apartment.jpg";
+import repairScandiApartment from "../../assets/images/DoneRepairs/repair-scandi-house.webp";
+import repairOfficeApartment from "../../assets/images/DoneRepairs/repair-office-space.webp";
+import repairStudioApartment from "../../assets/images/DoneRepairs/repair-studio.jpg";
+
+
 export const completedRepairs: RepairFeature[] = [
     {
         id: 1,
@@ -25,7 +31,7 @@ export const completedRepairs: RepairFeature[] = [
             square: 85,
             duration: "3 місяці",
             price: 580000,
-            imageUrl: "/images/repair-modern-apartment.jpg",
+            imageUrl: repairModernApartment,
         },
     },
     {
@@ -38,7 +44,7 @@ export const completedRepairs: RepairFeature[] = [
             square: 160,
             duration: "5 місяців",
             price: 1150000,
-            imageUrl: "/images/repair-scandi-house.jpg",
+            imageUrl: repairScandiApartment,
         },
     },
     {
@@ -51,7 +57,7 @@ export const completedRepairs: RepairFeature[] = [
             square: 120,
             duration: "2 місяці",
             price: 800000,
-            imageUrl: "/images/repair-office-space.jpg",
+            imageUrl: repairOfficeApartment,
         },
     },
     {
@@ -64,7 +70,7 @@ export const completedRepairs: RepairFeature[] = [
             square: 45,
             duration: "1.5 місяці",
             price: 350000,
-            imageUrl: "/images/repair-studio.jpg",
+            imageUrl: repairStudioApartment,
         },
     },
 ];

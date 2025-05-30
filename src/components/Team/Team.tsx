@@ -4,7 +4,7 @@ import { TeamCard } from "../TeamCard";
 
 export const Team = () => (
   <Box
-    height={{ base: "auto", md: "100vh", xl: "120vh" }}
+    height={{ base: "auto", md: "100vh", xl: "105vh" }}
     p={6}
   >
     <Heading
