@@ -21,7 +21,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenRegister, onOpenContacts }) => {
     <Box>
       {/* Лого */}
       <Box position="absolute" top="20px" left="100px">
-        <Box boxSize={"186"}>
+        <Box boxSize={"186px"}>
           <Logo />
         </Box>
       </Box>
