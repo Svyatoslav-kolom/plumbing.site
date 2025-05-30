@@ -4,25 +4,14 @@ import { TeamCard } from "../TeamCard";
 
 export const Team = () => (
   <Box
-    height="120vh"
+    height={{base: "auto", md:"120vh"}}
     p={6}
-    bg="background.main"
-    style={{
-      backgroundImage: `linear-gradient(
-      to bottom,
-      rgba(211, 226, 228, 0) 0%,
-      rgba(211, 226, 228, 1) 20%,
-      rgba(211, 226, 228, 0.46) 80%,
-      rgba(211, 226, 228, 0) 100%
-    )`,
-    }}
-    id="masters"
   >
     <Heading
       textStyle={"pageTitle"}
       mb={6}
       maxW={"800px"}
-      ml={"100px"}
+      ml={{base: "auto", md: "100px"}}
     >
       Наши мастера
     </Heading>
@@ -30,7 +19,7 @@ export const Team = () => (
     <Flex
       flexWrap="wrap"
       justify="center"
-      gap="60px"
+      gap={{base:"20px", md: "60px"}}
       mx="auto"
       align="flex-start"
     >

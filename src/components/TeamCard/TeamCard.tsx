@@ -5,10 +5,10 @@ import {
   Text,
   Image,
   VStack,
-  Button,
+  Stack,
 } from '@chakra-ui/react';
 import type { TeamMember } from '../Team/teamMembers';
-import arrowRight from '../../assets/icons/ArrowRight.svg';
+import { ButtonStandart } from '../ButtonStandart';
 
 interface TeamCardProps {
   member: TeamMember;
@@ -18,85 +18,80 @@ export const TeamCard: React.FC<TeamCardProps> = ({ member }) => {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <VStack
+    <Stack
       bg="white"
-      maxW="240px"
+      maxW={{ base: "100%", md: "240px" }}
       w="100%"
       borderRadius="20px"
       textAlign="center"
       transition="all 0.3s ease"
       pb={"20px"}
-      minH="530px"
+      minH={{ base: "auto", md: "530px" }}
+      direction="column"
+      boxShadow="sm"
     >
-      <VStack gap={3} h="100%" justifyContent={"space-between"}>
-        <Image
-          w="95%"
-          h="280px"
-          borderRadius="20px"
-          src={member.avatarUrl}
-          alt={member.name}
-          objectFit="cover"
-          onError={(e) => (e.currentTarget.src = defaultImage)}
-          transition="all 0.3s ease"
-        />
-
-        <VStack
-          height={"100%"}
-          mx="30px"
-          align="start"
-          w="100%"
-          textAlign="left"
-          gap={4}
-          px={"30px"}
-        >
-          <VStack align="start" gap={1} w="100%">
-            <Text textStyle="blockTitle" color="accent.main">
-              {member.name}
-            </Text>
-
-            <Text textStyle="text" color="text.grayDark">
-              {member.position}
-            </Text>
-          </VStack>
-
-          {/* Плавне зʼявлення тексту */}
-          <Box
-            w="100%"
-            overflow="hidden"
-            maxH={expanded ? '500px' : '0px'}
-            opacity={expanded ? 1 : 0}
-            transition="max-height 0.4s ease, opacity 0.4s ease"
-          >
-            <VStack align="start" textStyle="text" color="text.grayDark">
-              {member.description?.map((point, idx) => (
-                <Text key={idx}>
-                  <Text as="span" mr={1} color="accent.main">
-                    •
-                  </Text>
-                  {point}
-                </Text>
-              ))}
-            </VStack>
-          </Box>
-        </VStack>
-      </VStack>
-
-      <Button
-        onClick={() => setExpanded(!expanded)}
-        size="sm"
-        variant="ghost"
-        color="accent.main"
-        alignSelf="center"
-        mt={"auto"}
+      <Box
+        borderRadius="20px"
+        overflow="hidden"
+        w="100%"
+        h={{ base: "170px", md: "280px" }}
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
       >
         <Image
-          src={arrowRight}
-          alt="Toggle details"
-          w={"25px"}
-          transition="transform 0.3s ease"
-          transform={expanded ? 'rotate(270deg)' : 'rotate(90deg)'}
+          w="100%"
+          h="100%"
+          src={member.avatarUrl}
+          alt={member.name}
+          onError={(e) => (e.currentTarget.src = defaultImage)}
         />
-      </Button>
-    </VStack>
+      </Box>
+
+      <VStack
+        height={"100%"}
+        align="start"
+        w="100%"
+        textAlign="left"
+        gap={4}
+        px={"20px"}
+        pt={"10px"}
+      >
+        <VStack align="start" gap={1} w="100%">
+          <Text textStyle="blockTitle" color="accent.main">
+            {member.name}
+          </Text>
+
+          <Text textStyle="text" color="text.grayDark">
+            {member.position}
+          </Text>
+        </VStack>
+
+        <Box
+          w="100%"
+          overflow="hidden"
+          maxH={expanded ? '500px' : '0px'}
+          opacity={expanded ? 1 : 0}
+          transition="max-height 0.4s ease, opacity 0.4s ease"
+        >
+          <VStack align="start" textStyle="text" color="text.grayDark" gap={2}>
+            {member.description?.map((point, idx) => (
+              <Text key={idx} display="flex" alignItems="start">
+                <Text as="span" mr={2} color="accent.main">•</Text>
+                {point}
+              </Text>
+            ))}
+          </VStack>
+        </Box>
+      </VStack>
+
+      <Box height={"43"} w={"133px"} alignSelf={"center"}>
+        <ButtonStandart
+          text={expanded ? "Кратко" : "Детальней"}
+          onClick={() => setExpanded(!expanded)}
+        />
+      </Box>
+
+    </Stack>
   );
 };

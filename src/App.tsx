@@ -105,7 +105,22 @@ function App() {
         <DoneRepairs />
       </Box>
 
-      <Team />
+      <Box
+        px={{ base: "30px", md: "0" }}
+        style={{
+          backgroundImage: `linear-gradient(
+              to bottom,
+              rgba(211, 226, 228, 0) 0%,
+              rgba(211, 226, 228, 1) 20%,
+              rgba(211, 226, 228, 0.46) 80%,
+              rgba(211, 226, 228, 0) 100%
+            )`,
+        }}
+        id="masters"
+
+      >
+        <Team />
+      </Box>
 
       <Box mx={"100px"} mt={"150px"} id='calculator'>
         <CalculatorSection />
