@@ -30,6 +30,7 @@ export const RegisterSection: React.FC<Props> = ({ onOpenRegister }) => (
           _placeholder={{ color: "text.grayDark" }}
           height={"60px"}
         />
+
         <Input
           placeholder="Номер телефона"
           bg="blocks.secondary"
@@ -55,6 +56,7 @@ export const RegisterSection: React.FC<Props> = ({ onOpenRegister }) => (
       gap={4}
       color={"text.white"}
       mt={"20px"}
+      maxW={{ base: "100%", md: "530px", xl: "100%" }}
     >
       <Heading textStyle={"pageTitle"} fontWeight={400}>
         ОСТАВТЕ ЗАЯВКУ ПРЯМО СЕЙЧАС
@@ -70,7 +72,7 @@ export const RegisterSection: React.FC<Props> = ({ onOpenRegister }) => (
         mt={{ base: "40px", md: "50px" }}
         mx={"auto"}
         display={{ base: "block", md: "none" }}
-        
+
       >
         <ButtonStandart text={"Заявка"} isLargeText={true} onClick={() => onOpenRegister(true)} />
       </Box>

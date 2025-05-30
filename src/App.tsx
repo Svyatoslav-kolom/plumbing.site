@@ -91,9 +91,9 @@ function App() {
       </Box>
 
       <Box
-        pl={{ base: "30px", md: "200px" }}
-        pr={{ base: "30px", md: "100px" }}
-        mt={{ base: "30px", md: "160px" }}
+        pl={{ base: "30px", md: "70px", xl: "200px" }}
+        pr={{ base: "30px", md: "70px", xl: "100px" }}
+        mt={{ base: "30px", md: "100px", xl: "160px" }}
         style={{
           backgroundImage: 'linear-gradient(to right, #6AB4E5 0%, #4582AA 100%)'
         }}
