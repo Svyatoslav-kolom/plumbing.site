@@ -91,14 +91,14 @@ function App() {
       </Box>
 
       <Box
-        pl="200px"
-        pr="100px"
+        pl={{ base: "30px", md: "200px" }}
+        pr={{ base: "30px", md: "100px" }}
         mt={{ base: "30px", md: "160px" }}
         style={{
           backgroundImage: 'linear-gradient(to right, #6AB4E5 0%, #4582AA 100%)'
         }}
       >
-        <RegisterSection />
+        <RegisterSection onOpenRegister={setIsRegisterOpen} />
       </Box>
 
       <Box mx={"100px"} id="portfolio">
