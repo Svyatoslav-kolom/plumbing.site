@@ -57,7 +57,7 @@ function App() {
       )}
 
       {isMenuOpen && (
-        <MobileHeaderMenu onCloseMenu={onCloseMenu}/>
+        <MobileHeaderMenu onCloseMenu={onCloseMenu} />
       )}
 
       {isContactsOpen && (
@@ -67,23 +67,33 @@ function App() {
       )}
 
       <Box
-        pt={{base: "30px", md:"100px"}}
+        pt={{ base: "30px", md: "100px" }}
         bgImage={`url(${BgImage})`}
         bgSize="cover"
       >
         <Head />
       </Box>
 
-      <TypesOfRepairs />
+      <Box
+        mx={{ base: "30px", md: 0 }}
+        id="services"
+        mt={{ base: "30px", md: "60px" }}
+      >
+        <TypesOfRepairs />
+      </Box>
 
-      <Box mx={"100px"} id="workflow" >
+      <Box
+        mx={{ base: "30px", md: "100px" }}
+        id="workflow"
+        mt={{ base: "30px", md: "60px" }}
+      >
         <StagesOfWork />
       </Box>
 
       <Box
         pl="200px"
         pr="100px"
-        mt="160px"
+        mt={{ base: "30px", md: "160px" }}
         style={{
           backgroundImage: 'linear-gradient(to right, #6AB4E5 0%, #4582AA 100%)'
         }}

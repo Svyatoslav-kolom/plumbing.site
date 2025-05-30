@@ -1,4 +1,4 @@
-import { Box, Heading, HStack, Image, Text } from "@chakra-ui/react";
+import { Box, Heading, Stack, Image, Text } from "@chakra-ui/react";
 import type { FC } from "react";
 
 interface Props {
@@ -13,22 +13,30 @@ export const StagesItem: FC<Props> = ({
   icon,
 }) => (
   <Box
-    p={"30px"}
-    bg="blocks.main"
+    p={{ base: 0, md: "30px" }}
+    bg={{ base: "transparent", md: "blocks.main" }}
     borderRadius="15px"
     w="100%"
   >
-    <HStack
+    <Stack
       justifyContent={"space-between"}
       alignItems="start"
-      mb={"20px"}
+      mb={{ base: "5px", md: "20px" }}
+      direction={{ base: "column", md: "row" }}
     >
-      <Heading textStyle={"blockTitle"} color={"accent.main"} fontWeight={"bold"}>
+      <Image
+        src={icon}
+        order={{ base: -1, md: 1 }} // моб: перша, десктоп: остання
+      />
+
+      <Heading
+        textStyle={"blockTitle"}
+        color={"accent.main"}
+        fontWeight={"bold"}
+      >
         {title}
       </Heading>
-
-      <Image src={icon} />
-    </HStack>
+    </Stack>
 
     <Text textStyle={"text"}>
       {description}

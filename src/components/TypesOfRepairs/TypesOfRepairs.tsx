@@ -25,10 +25,9 @@ export const TypesOfRepairs = () => {
   }, [emblaApi, onSelect]);
 
   return (
-    <Box w="100%" py={6} overflow="visible" id="services">
+    <Box w="100%" overflow="visible">
       <Heading
         textStyle="pageTitle"
-        mb={6}
         maxW="800px"
         ml={{ base: "30px", md: "100px" }}
       >
@@ -36,7 +35,10 @@ export const TypesOfRepairs = () => {
       </Heading>
 
       {isMobile ? (
-        <VStack gap={6} px={4}>
+        <VStack
+          gap={6}
+          px={{base: 0, md: 4}}
+        >
           {repairs.map((repair, index) => (
             <RepairItem
               key={index}

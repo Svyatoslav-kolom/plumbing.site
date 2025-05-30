@@ -12,7 +12,11 @@ export const StagesOfWork = () => (
       Работа состоит из 6 этапов
     </Heading>
 
-    <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap={"40px"}>
+    <SimpleGrid
+      columns={{ base: 2, md: 2, lg: 3 }}
+      gap={"40px"}
+      columnGap={{ base: "60px", md: "40px" }}
+    >
       {repairSteps.map((step, index) => (
         <StagesItem
           key={index}
