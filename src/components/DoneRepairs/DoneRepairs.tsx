@@ -81,10 +81,10 @@ export const DoneRepairs = () => {
           maxW="500px"
           w={"50%"}
           gap="40px"
-          
+
           display={{ md: "none", xl: "flex" }}
         >
-          <Heading textStyle="pageTitle">
+          <Heading textStyle="pageTitle" mt={"20px"}>
             {mode === "design" ? "Wykonane projekty" : "Wykonane remonty"}
           </Heading>
 
@@ -97,7 +97,22 @@ export const DoneRepairs = () => {
         </VStack>
       )}
 
-      <VerticalSlider repairDetails={currentRepairs} onActiveChange={setActiveId} />
+      <Box position="relative">
+        <VerticalSlider repairDetails={currentRepairs} onActiveChange={setActiveId} />
+
+        {/* "Туман" знизу */}
+        <Box
+          position="absolute"
+          bottom="0"
+          left="0"
+          right="0"
+          height="300px"
+          bg="linear-gradient(to top, rgba(255,255,255,0.8), rgba(255,255,255,0))"
+          pointerEvents="none"
+        />
+      </Box>
+
+
     </Stack>
   );
 };

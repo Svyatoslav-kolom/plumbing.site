@@ -16,7 +16,6 @@ export function ReceiptBreakdown({ breakdown, total }: ReceiptBreakdownProps) {
     <Box
       p={5}
       boxShadow="lg"
-      borderBottomRadius="20px"
       zIndex={10}
       animation="slideUp 0.3s ease-out"
       textStyle="text"
