@@ -76,6 +76,7 @@ export const RepairItem: FC<Props> = ({
             alt={title}
             objectFit="contain"
             w="100%"
+            height={{ base: "100%", xl: "300px" }}
             onError={(e) => {
               const target = e.target as HTMLImageElement
               target.src = defaultImage
@@ -93,7 +94,7 @@ export const RepairItem: FC<Props> = ({
         >
           {title}
         </Heading>
-        
+
         <Text
           textStyle="text"
           display={{ base: isExpanded ? "none" : "block", md: "block" }}

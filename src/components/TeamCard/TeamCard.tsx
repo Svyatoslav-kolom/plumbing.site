@@ -28,8 +28,6 @@ export const TeamCard: React.FC<TeamCardProps> = ({ member }) => {
       pb={"20px"}
       minH={{ base: "auto", md: "250px", xl: "530px" }}
       direction="column"
-      // justifyContent={"space-between"}
-      boxShadow="sm"
     >
       <Box
         borderRadius="20px"

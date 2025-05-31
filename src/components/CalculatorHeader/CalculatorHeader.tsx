@@ -16,7 +16,7 @@ const repairRates: Record<string, number> = {
   'Косметический': 8600,
   'Черновой': 7000,
   'Капитальный': 12000,
-  'Элитный': 15000,
+  'Дизайнерский': 15000,
 };
 
 export const CalculatorHeader: React.FC = () => {

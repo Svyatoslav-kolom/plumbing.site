@@ -15,6 +15,7 @@ import { Logo } from '../Logo';
 
 import calculatorIcon from "../../assets/icons/calculatorIcon.svg";
 import contactsIcon from "../../assets/icons/contactsIcon.svg";
+import { toaster } from '../ui/toaster';
 
 interface HeaderProps {
   onOpenRegister: (value: boolean) => void;
@@ -22,6 +23,7 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ onOpenRegister, onOpenContacts }) => {
+
   return (
     <Box>
       {/* Лого */}
@@ -48,11 +50,42 @@ const Header: React.FC<HeaderProps> = ({ onOpenRegister, onOpenContacts }) => {
           direction={{ md: "column", xl: "row" }}
           alignItems={{ md: "start", xl: "center" }}
         >
-          <Text textStyle="text">poshtaremont@gmail.com</Text>
+          <Text
+            textStyle="text"
+            cursor="pointer"
+            onClick={() => {
+              navigator.clipboard.writeText("kontakt@remontykrakova.pl");
+              toaster.create({
+                description: "Email скопійовано",
+                type: "success",
+              });
+            }}
+            _hover={{ textDecoration: 'underline' }}
+          >
+            kontakt@remontykrakova.pl
+          </Text>
+
+
           <Text textStyle="text">ПН-ВТ 9:00–8:00</Text>
+
           <Flex align="center" gap={1}>
             <FaPhone />
-            <Text textStyle="text">+09734343434</Text>
+
+            <Text
+              textStyle="text"
+              cursor="pointer"
+              onClick={() => {
+                navigator.clipboard.writeText("+48 883 465 816");
+                toaster.create({
+                  description: "Телефон скопійовано",
+                  type: "success",
+                });
+              }}
+              _hover={{ textDecoration: 'underline' }}
+            >
+              +48 883 465 816
+            </Text>
+
           </Flex>
         </Flex>
 
@@ -100,7 +133,9 @@ const Header: React.FC<HeaderProps> = ({ onOpenRegister, onOpenContacts }) => {
           <Link color="text.white" href="#portfolio">Портфолио</Link>
           <Link color="text.white" href="#masters">Мастера</Link>
 
-          <Link
+          <Button
+            as="a"
+            //@ts-ignore
             href="#calculator"
             borderRadius="10px"
             px="25px"
@@ -111,7 +146,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenRegister, onOpenContacts }) => {
             display={{ md: "none", xl: "block" }}
           >
             Расчет
-          </Link>
+          </Button>
 
           <Button
             borderRadius="10px"
@@ -120,10 +155,12 @@ const Header: React.FC<HeaderProps> = ({ onOpenRegister, onOpenContacts }) => {
             color="text.white"
             bg="accent.main"
             onClick={() => onOpenContacts(true)}
+            _hover={{ bg: "accent.dark" }}
             display={{ md: "none", xl: "block" }}
           >
             Контакты
           </Button>
+
 
           <Flex align="center" gap={2}>
             <Text color="text.white">Ремонт</Text>

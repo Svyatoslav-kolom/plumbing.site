@@ -65,7 +65,7 @@ export const DoneRepairs = () => {
     <Stack
       flexDirection={{ md: "column", xl: "row" }}
       justifyContent="space-between"
-      h={{ md: "70vh", lg: "100vh" }}
+      h={{ md: "70vh", lg: "110vh" }}
     >
       <Heading textStyle={"pageTitle"} display={{ md: "block", xl: "none" }}>
         Выполненые ремонты
@@ -74,7 +74,7 @@ export const DoneRepairs = () => {
       {activeRepair && (
         <VStack
           maxW={"490px"}
-          justifyContent={"space-between"}
+          gap={"40px"}
           height={"100%"}
           display={{ md: "none", xl: "flex" }}
         >

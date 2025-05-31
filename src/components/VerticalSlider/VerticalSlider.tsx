@@ -23,7 +23,7 @@ export const VerticalSlider = ({ repairDetails, onActiveChange }: VerticalSlider
       width="100%"
       overflow="hidden"
       position="relative"
-      // height="100vh"
+    // height="100vh"
     >
       <Box flex="1" overflow="hidden">
         <Swiper
@@ -78,36 +78,18 @@ export const VerticalSlider = ({ repairDetails, onActiveChange }: VerticalSlider
           justify-content: center;
           align-items: center;
           transition: transform 0.3s ease, filter 0.3s ease;
-          filter: grayscale(80%);
-        }
-
-        .custom-swiper .swiper-slide-active {
-          transform: scale(1) translateY(0);
-          z-index: 2;
-          filter: none;
-        }
-
-        .custom-swiper .swiper-slide-prev,
-        .custom-swiper .swiper-slide-next {
-          transform: scaleX(0.5) scaleY(0.35);
-          opacity: 0.7;
+          filter: blur(4px); /* додаємо розмиття за замовчуванням */
+          transform: scale(0.8);
+          opacity: 0.6;
           z-index: 1;
         }
 
-        // .swiper-pagination-bullet {
-        //   width: 12px;
-        //   height: 12px;
-        //   background-color: var(--chakra-colors-blocks-secondary);
-        //   opacity: 1;
-        //   border-radius: 50%;
-        //   cursor: pointer;
-        //   transition: background-color 0.3s;
-        //   margin: 6px 0;
-        // }
-
-        // .swiper-pagination-bullet-active {
-        //   background-color: var(--chakra-colors-accent-main);
-        // }
+        .custom-swiper .swiper-slide-active {
+          filter: none; /* активний слайд не розмитий */
+          transform: scale(1) translateY(0);
+          opacity: 1;
+          z-index: 2;
+        }
       `}</style>
     </Flex>
   );

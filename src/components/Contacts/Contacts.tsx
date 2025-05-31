@@ -6,134 +6,161 @@ import { IconLink } from "../IconLink";
 import telegram from "../../assets/icons/SocialLinks/telegramIcon.svg";
 import facebook from "../../assets/icons/SocialLinks/facebookIcon.svg";
 import viber from "../../assets/icons/SocialLinks/viberIcon.svg";
+import { toaster } from "../ui/toaster";
 
 interface Props {
   onClose: () => void;
 }
 
-export const Contacts: React.FC<Props> = ({ onClose }) => (
-  <VStack
-    bg="blocks.main"
-    pt="10px"
-    pb="30px"
-    px="30px"
-    borderRadius="15px"
-  >
+export const Contacts: React.FC<Props> = ({ onClose }) => {
 
-    <CloseButton onClick={onClose} alignSelf={"end"} />
-
-    <Stack
-      justifyContent={"space-between"}
-      direction={{ base: "column", md: "row" }}
+  return (
+    <VStack
+      bg="blocks.main"
+      pt="10px"
+      pb="30px"
+      px="30px"
+      borderRadius="15px"
     >
-      <VStack
-        px={"35px"}
-        py={"20px"}
-        bg="blocks.secondary"
-        borderRadius="15px"
+
+      <CloseButton onClick={onClose} alignSelf={"end"} />
+
+      <Stack
+        justifyContent={"space-between"}
+        direction={{ base: "column", md: "row" }}
       >
-        <Text
-          textStyle={"subtitle"}
-          alignSelf={"start"}
-          mb={{ base: 2, md: 5 }}
+        <VStack
+          px={"35px"}
+          py={"20px"}
+          bg="blocks.secondary"
+          borderRadius="15px"
         >
-          Контакти
-        </Text>
-
-        <HStack
-          width={"100%"}
-          align={"center"}
-          justify={"start"}
-          gap={{ base: "15px", md: "30px" }}
-        >
-          <Image src={EmailIcon} boxSize={{ base: "30px", md: "50px" }} />
-
-          <Text>
-            poshtaremont@gmail.com
+          <Text
+            textStyle={"subtitle"}
+            alignSelf={"start"}
+            mb={{ base: 2, md: 5 }}
+          >
+            Контакти
           </Text>
-        </HStack>
 
-        <HStack
-          width={"100%"}
-          align={"center"}
-          justify={"start"}
-          gap={{ base: "15px", md: "30px" }}
+          <HStack
+            width={"100%"}
+            align={"center"}
+            justify={"start"}
+            gap={{ base: "15px", md: "30px" }}
+          >
+            <Image src={EmailIcon} boxSize={{ base: "30px", md: "50px" }} />
+
+            <Text
+              textStyle="text"
+              cursor="pointer"
+              onClick={() => {
+                navigator.clipboard.writeText("kontakt@remontykrakova.pl");
+                toaster.create({
+                  description: "Email скопійовано",
+                  type: "success",
+                });
+              }}
+              _hover={{ textDecoration: 'underline' }}
+            >
+              kontakt@remontykrakova.pl
+            </Text>
+
+          </HStack>
+
+          <HStack
+            width={"100%"}
+            align={"center"}
+            justify={"start"}
+            gap={{ base: "15px", md: "30px" }}
+          >
+            <Image
+              src={PhoneIcon}
+              boxSize={{ base: "30px", md: "50px" }}
+            />
+
+            <Text textStyle="text">
+              ПН-ВТ 9:00-8:00
+            </Text>
+          </HStack>
+
+          <HStack
+            width={"100%"}
+            align={"center"}
+            justify={"start"}
+            gap={{ base: "15px", md: "30px" }}
+          >
+            <Image src={TimeIcon} boxSize={{ base: "30px", md: "50px" }} />
+
+            <Text
+              textStyle="text"
+              cursor="pointer"
+              onClick={() => {
+                navigator.clipboard.writeText("+48 883 465 816");
+                toaster.create({
+                  description: "Телефон скопійовано",
+                  type: "success",
+                });
+              }}
+              _hover={{ textDecoration: 'underline' }}
+            >
+              +48 883 465 816
+            </Text>
+          </HStack>
+        </VStack>
+
+        <VStack
+          px={"35px"}
+          py={"20px"}
         >
-          <Image
-            src={PhoneIcon}
-            boxSize={{ base: "30px", md: "50px" }}
-          />
-
-          <Text>
-            ПН-ВТ 9:00-8:00
+          <Text
+            textStyle={"subtitle"}
+            alignSelf={"start"}
+            mb={{ base: 2, md: 5 }}
+          >
+            Ми в соц. мережах
           </Text>
-        </HStack>
 
-        <HStack
-          width={"100%"}
-          align={"center"}
-          justify={"start"}
-          gap={{ base: "15px", md: "30px" }}
-        >
-          <Image src={TimeIcon} boxSize={{ base: "30px", md: "50px" }} />
+          <HStack
+            width={"100%"}
+            align={"center"}
+            justify={"start"}
+            gap={{ base: "15px", md: "30px" }}
+          >
+            <IconLink icon={telegram} link={""} />
 
-          <Text>
-            +09734343434
-          </Text>
-        </HStack>
-      </VStack>
+            <Text textStyle="text">
+              remonty krakowa
+            </Text>
+          </HStack>
 
-      <VStack
-        px={"35px"}
-        py={"20px"}
-      >
-        <Text
-          textStyle={"subtitle"}
-          alignSelf={"start"}
-          mb={{ base: 2, md: 5 }}
-        >
-          Ми в соц. мережах
-        </Text>
+          <HStack
+            align={"center"}
+            justify={"start"}
+            gap={{ base: "15px", md: "30px" }}
+            width={"100%"}
+          >
+            <IconLink icon={viber} link={""} />
 
-        <HStack
-          width={"100%"}
-          align={"center"}
-          justify={"start"}
-          gap={{ base: "15px", md: "30px" }}
-        >
-          <IconLink icon={telegram} link={""} />
+            <Text textStyle="text">
+              remonty krakowa
+            </Text>
+          </HStack>
 
-          <Text>
-            remonty krakowa
-          </Text>
-        </HStack>
+          <HStack
+            width={"100%"}
+            align={"center"}
+            justify={"start"}
+            gap={{ base: "15px", md: "30px" }}
+          >
+            <IconLink icon={facebook} link={""} />
 
-        <HStack
-          align={"center"}
-          justify={"start"}
-          gap={{ base: "15px", md: "30px" }}
-          width={"100%"}
-        >
-          <IconLink icon={viber} link={""} />
-
-          <Text>
-            remonty krakowa
-          </Text>
-        </HStack>
-
-        <HStack
-          width={"100%"}
-          align={"center"}
-          justify={"start"}
-          gap={{ base: "15px", md: "30px" }}
-        >
-          <IconLink icon={facebook} link={""} />
-
-          <Text>
-            remonty krakowa
-          </Text>
-        </HStack>
-      </VStack>
-    </Stack>
-  </VStack>
-);
+            <Text textStyle="text">
+              remonty krakowa
+            </Text>
+          </HStack>
+        </VStack>
+      </Stack>
+    </VStack>
+  );
+}

@@ -18,6 +18,7 @@ import { RegisterBlock } from './components/RegisterBlock';
 import { Contacts } from './components/Contacts';
 import { MobileHeader } from './components/MobileHeader';
 import { MobileHeaderMenu } from './components/MobileHeaderMenu';
+import { Toaster } from './components/ui/toaster';
 
 function App() {
   const [isTermsOpen, setIsTermsOpen] = useState(false);
@@ -53,19 +54,19 @@ function App() {
       </Box>
 
       {isRegisterOpen && (
-        <FadeWrapper>
+        <FadeWrapper onClose={onCloseRegister}>
           <RegisterBlock onClose={onCloseRegister} />
+        </FadeWrapper>
+      )}
+
+      {isContactsOpen && (
+        <FadeWrapper onClose={onCloseContacts}>
+          <Contacts onClose={onCloseContacts} />
         </FadeWrapper>
       )}
 
       {isMenuOpen && (
         <MobileHeaderMenu onCloseMenu={onCloseMenu} />
-      )}
-
-      {isContactsOpen && (
-        <FadeWrapper>
-          <Contacts onClose={onCloseContacts} />
-        </FadeWrapper>
       )}
 
       <Box
@@ -135,21 +136,19 @@ function App() {
         <Footer setIsPrivacyOpen={setIsPrivacyOpen} setIsTermsOpen={setIsTermsOpen} />
       </Box>
 
-      {
-        isPrivacyOpen && (
-          <FadeWrapper>
-            <PrivacyPolicy onClose={onClosePrivacy} />
-          </FadeWrapper>
-        )
-      }
+      {isPrivacyOpen && (
+        <FadeWrapper onClose={onClosePrivacy}>
+          <PrivacyPolicy onClose={onClosePrivacy} />
+        </FadeWrapper>
+      )}
 
-      {
-        isTermsOpen && (
-          <FadeWrapper>
-            <TermsOfService onClose={onCloseTerms} />
-          </FadeWrapper>
-        )
-      }
+      {isTermsOpen && (
+        <FadeWrapper onClose={onCloseTerms}>
+          <TermsOfService onClose={onCloseTerms} />
+        </FadeWrapper>
+      )}
+
+      <Toaster />
     </Box>
   )
 }

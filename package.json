@@ -13,6 +13,7 @@
   "dependencies": {
     "@chakra-ui/radio": "^2.1.2",
     "@chakra-ui/react": "^3.17.0",
+    "@chakra-ui/toast": "^7.0.2",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@fseehawer/react-circular-slider": "^3.2.7",
