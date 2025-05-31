@@ -29,7 +29,7 @@ export default function CalculatorSection() {
         </Box>
         <Box
           px={{ base: "10px", md: 0 }}
-          w={{ base: "100%", md: "90%", xl: "35%" }}
+          w={{ base: "100%", md: "90%", xl: "40%" }}
           alignSelf={"center"}
         >
           <SummaryWrapper prices={prices} />
