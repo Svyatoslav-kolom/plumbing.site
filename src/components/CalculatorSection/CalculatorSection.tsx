@@ -2,9 +2,11 @@ import { Box, Heading, Stack } from '@chakra-ui/react';
 import Calculator from '../Calculator/Calculator';
 import { useState } from 'react';
 import SummaryWrapper from '../SummaryWrapper/SummaryWrapper';
+import { useMode } from '../../utils/urlMode';
 
 export default function CalculatorSection() {
   const [prices, setPrices] = useState({ workPrice: 0, materialPrice: 0, total: 0 });
+  const [mode] = useMode(); // ← Додано
 
   return (
     <Box>
@@ -25,7 +27,7 @@ export default function CalculatorSection() {
           maxW={{ base: "100%", xl: "550px" }}
           px={{ base: "30px", md: 0 }}
         >
-          <Calculator setPrices={setPrices} />
+          <Calculator setPrices={setPrices} mode={mode} />
         </Box>
         <Box
           px={{ base: "10px", md: 0 }}

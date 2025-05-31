@@ -16,6 +16,7 @@ import { Logo } from '../Logo';
 import calculatorIcon from "../../assets/icons/calculatorIcon.svg";
 import contactsIcon from "../../assets/icons/contactsIcon.svg";
 import { toaster } from '../ui/toaster';
+import { useMode } from '../../utils/urlMode';
 
 interface HeaderProps {
   onOpenRegister: (value: boolean) => void;
@@ -23,6 +24,12 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ onOpenRegister, onOpenContacts }) => {
+
+  const [mode, setMode] = useMode();
+  const isDesign = mode === "design";
+  const handleSwitchChange = (val: boolean) => {
+    setMode(val ? "design" : "renovation");
+  };
 
   return (
     <Box>
@@ -164,7 +171,10 @@ const Header: React.FC<HeaderProps> = ({ onOpenRegister, onOpenContacts }) => {
 
           <Flex align="center" gap={2}>
             <Text color="text.white">Ремонт</Text>
-            <CustomSwitch />
+            <CustomSwitch
+              checked={isDesign}
+              onChange={handleSwitchChange}
+            />
             <Text color="text.white">Дизайн</Text>
           </Flex>
         </Flex>

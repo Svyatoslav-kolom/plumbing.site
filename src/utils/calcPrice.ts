@@ -8,20 +8,35 @@ import {
   REPAIR_LABELS,
 } from "./constants";
 
+const INTERIOR_STYLE_FACTORS = {
+  minimalism: 1,
+  loft: 1.1,
+  classic: 1.2,
+  "hi-tech": 1.3,
+};
+
 export function calculatePrices(data: RepairFormData) {
   const area = data.area || 1;
   const ceilingMultiplier = data.ceilingHeight > 3 ? 1.2 : 1;
   const rooms = data.rooms || 1;
 
-  const repairMultiplier = REPAIR_FACTORS[data.repairType || "cosmetic"];
+  const baseRepairMultiplier = REPAIR_FACTORS[data.repairType || "cosmetic"];
   const housingMultiplier = HOUSING_FACTORS[data.housingType || "new"];
+
+  // Якщо дизайнерський ремонт — додаємо множник стилю
+  const interiorStyleMultiplier =
+    data.repairType === "designer"
+      ? INTERIOR_STYLE_FACTORS[data.interiorStyle || "minimalism"] || 1
+      : 1;
+
+  const totalRepairMultiplier = baseRepairMultiplier * interiorStyleMultiplier;
 
   const demolitionCost = data.demolition ? 2000 : 0;
   const wallAlignmentCost = data.wallAlignment ? 1500 : 0;
   const extras = demolitionCost + wallAlignmentCost;
 
   const workBase = BASE_WORK * area;
-  const workAdjusted = workBase * ceilingMultiplier * repairMultiplier;
+  const workAdjusted = workBase * ceilingMultiplier * totalRepairMultiplier;
   const workPrice = workAdjusted + extras;
 
   const materialBase = BASE_MATERIAL * area * rooms;
@@ -51,8 +66,19 @@ export function calculatePrices(data: RepairFormData) {
       {
         label: "Тип ремонту",
         value: REPAIR_LABELS[data.repairType || "cosmetic"],
-        priceImpact: Math.round(workBase * ceilingMultiplier * (repairMultiplier - 1)),
+        priceImpact: Math.round(workBase * ceilingMultiplier * (baseRepairMultiplier - 1)),
       },
+      ...(data.repairType === "designer"
+        ? [
+            {
+              label: "Стиль інтерʼєру",
+              value: data.interiorStyle || "Мінімалізм",
+              priceImpact: Math.round(
+                workBase * ceilingMultiplier * baseRepairMultiplier * (interiorStyleMultiplier - 1)
+              ),
+            },
+          ]
+        : []),
       {
         label: "Тип житла",
         value: HOUSING_LABELS[data.housingType || "new"],

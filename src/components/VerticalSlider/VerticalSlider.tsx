@@ -7,7 +7,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import { DoneRepairItem } from '../DoneRepairItem';
 import { DoneRepairItemMobile } from '../DoneRepairItemMobile';
-import type { RepairFeature } from '../DoneRepairs/completedRepairs';
+import type { RepairFeature } from '../../types/repairsTypes';
 
 type VerticalSliderProps = {
   repairDetails: RepairFeature[]; // ← тут замінили тип

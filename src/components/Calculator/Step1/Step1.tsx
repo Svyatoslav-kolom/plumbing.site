@@ -5,30 +5,34 @@ import type { HousingType, RepairFormData, RepairType } from '../../../types/for
 interface Step1Props {
   formData: RepairFormData;
   setFormData: Dispatch<SetStateAction<RepairFormData>>;
+  mode: 'design' | 'renovation';
 }
 
-const repairTypeItems = [
-  { value: 'cosmetic', label: 'Косметический' },
-  { value: 'capital', label: 'Капитальный' },
-  { value: 'black', label: 'Черновой' },
-  { value: 'designer', label: 'Дизайнерский' },
-];
+export const Step1 = ({ formData, setFormData, mode }: Step1Props) => {
+  const repairTypeItems = [
+    { value: 'cosmetic', label: 'Косметический' },
+    { value: 'capital', label: 'Капитальный' },
+    { value: 'black', label: 'Черновой' },
+    { value: 'designer', label: 'Дизайнерский' },
+  ];
 
-const houseTypeItems = [
-  { value: 'new', label: 'Новостройка' },
-  { value: 'secondary', label: 'Вторичное жилье' },
-  { value: 'cottage', label: 'Коттедж или таунхаус' },
-];
+  const interiorStyleItems = [
+    { value: 'minimalism', label: 'Минимализм' },
+    { value: 'loft', label: 'Лофт' },
+    { value: 'classic', label: 'Классика' },
+    { value: 'hi-tech', label: 'Хай-тек' },
+  ];
 
-export const Step1 = ({ formData, setFormData }: Step1Props) => {
+  const houseTypeItems = [
+    { value: 'new', label: 'Новостройка' },
+    { value: 'secondary', label: 'Вторичное жилье' },
+    { value: 'cottage', label: 'Коттедж или таунхаус' },
+  ];
+
   return (
     <Box>
-      <Text
-        textStyle="blockTitle"
-        mb={4}
-        textAlign="center"
-      >
-        Укажите вид ремонта
+      <Text textStyle="blockTitle" mb={4} textAlign="center">
+        {mode === 'design' ? 'Укажите стиль интерьера' : 'Укажите вид ремонта'}
       </Text>
 
       <VStack
@@ -41,21 +45,30 @@ export const Step1 = ({ formData, setFormData }: Step1Props) => {
         align="start"
       >
         <Text mb={2} alignSelf="flex-start">
-          Вид ремонта:
+          {mode === 'design' ? 'Стиль интерьера:' : 'Вид ремонта:'}
         </Text>
 
         <RadioGroup.Root
           onValueChange={(details) =>
             setFormData((prev) => ({
               ...prev,
-              repairType: details.value as RepairType,
+              ...(mode === 'design'
+                ? { interiorStyle: details.value as RepairFormData['interiorStyle'] }
+                : { repairType: details.value as RepairType }),
             }))
           }
-          value={formData.repairType || ''}
+          value={
+            mode === 'design'
+              ? formData.interiorStyle || ''
+              : formData.repairType || ''
+          }
         >
-          <SimpleGrid columns={{base: 1, md: 2}} gap={4}>
-            {repairTypeItems.map((item) => {
-              const isActive = formData.repairType === item.value;
+          <SimpleGrid columns={{ base: 1, md: 2 }} gap={4}>
+            {(mode === 'design' ? interiorStyleItems : repairTypeItems).map((item) => {
+              const isActive =
+                mode === 'design'
+                  ? formData.interiorStyle === item.value
+                  : formData.repairType === item.value;
 
               return (
                 <RadioGroup.Item key={item.value} value={item.value}>
@@ -76,7 +89,7 @@ export const Step1 = ({ formData, setFormData }: Step1Props) => {
         </RadioGroup.Root>
       </VStack>
 
-      {/* Секція типу житла — видима тільки на md і більше */}
+      {/* Тип житла – тільки на desktop */}
       <VStack
         display={{ base: 'none', md: 'flex' }}
         textStyle="text"

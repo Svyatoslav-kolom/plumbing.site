@@ -44,6 +44,7 @@ export const TeamCard: React.FC<TeamCardProps> = ({ member }) => {
           src={member.avatarUrl}
           alt={member.name}
           onError={(e) => (e.currentTarget.src = defaultImage)}
+          objectPosition="top"
         />
       </Box>
 

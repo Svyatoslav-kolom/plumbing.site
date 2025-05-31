@@ -19,6 +19,7 @@
     "@fseehawer/react-circular-slider": "^3.2.7",
     "@mui/system": "^7.1.0",
     "@splidejs/react-splide": "^0.7.12",
+    "@types/react-router-dom": "^5.3.3",
     "embla-carousel-react": "^8.6.0",
     "framer-motion": "^12.12.1",
     "keen-slider": "^6.8.6",
@@ -28,6 +29,7 @@
     "react-circular-slider-svg": "^0.4.0",
     "react-dom": "^19.1.0",
     "react-icons": "^5.5.0",
+    "react-router-dom": "^7.6.1",
     "round-slider": "^1.6.1",
     "swiper": "^11.2.7"
   },

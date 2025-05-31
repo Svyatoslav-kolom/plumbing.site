@@ -25,11 +25,14 @@ interface CalculatorProps {
     materialPrice: number;
     total: number;
   }>>;
+
+  mode: "design" | "renovation";
 }
 
-export default function Calculator({ setPrices }: CalculatorProps) {
+export default function Calculator({ setPrices, mode }: CalculatorProps) {
   const [formData, setFormData] = useState<RepairFormData>({
-    repairType: 'cosmetic',
+    repairType: 'designer',
+    interiorStyle: 'minimalism',
     housingType: 'new',
     area: 0,
     ceilingHeight: 2.5,
@@ -38,19 +41,18 @@ export default function Calculator({ setPrices }: CalculatorProps) {
     wallAlignment: false,
   });
 
+
   const swiperRef = useRef<any>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const isMobile = useBreakpointValue({ base: true, md: false });
   const isTouchMoveRaw = useBreakpointValue({ base: true, md: false });
   const isTouchMove = isTouchMoveRaw === undefined ? true : isTouchMoveRaw;
 
-  const steps = [
-    Step1,
-    ...(isMobile ? [Step1_5Mobile] : []),
-    Step2,
-    Step3,
-    Step4,
-  ];
+  const steps = [Step1, ...(isMobile ? [Step1_5Mobile] : []), Step2, Step3];
+
+  if (mode !== "design") {
+    steps.push(Step4);
+  }
 
   const totalSlides = steps.length;
 
@@ -95,6 +97,7 @@ export default function Calculator({ setPrices }: CalculatorProps) {
                   formData={formData}
                   setFormData={setFormData}
                   swiperRef={swiperRef}
+                  mode={mode}
                 />
               </Box>
             </SwiperSlide>

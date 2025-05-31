@@ -15,6 +15,7 @@ import closeButton from "../../assets/icons/CloseButton.svg";
 
 import { CustomSwitch } from "../CustomSwitch";
 import { ButtonStandart } from "../ButtonStandart";
+import { useMode } from "../../utils/urlMode";
 
 interface Props {
   onOpenContacts: (value: boolean) => void;
@@ -30,6 +31,12 @@ export const MobileHeader: React.FC<Props> = ({
   isMenuOpen,
 }) => {
   const icon = isMenuOpen ? closeButton : burgerMenu;
+
+  const [mode, setMode] = useMode();
+  const isDesign = mode === "design";
+  const handleSwitchChange = (val: boolean) => {
+    setMode(val ? "design" : "renovation");
+  };
 
   return (
     <Box>
@@ -79,7 +86,10 @@ export const MobileHeader: React.FC<Props> = ({
       >
         <Flex align="center" gap={2}>
           <Text color="text.white">Ремонт</Text>
-          <CustomSwitch />
+          <CustomSwitch
+            checked={isDesign}
+            onChange={handleSwitchChange}
+          />
           <Text color="text.white">Дизайн</Text>
         </Flex>
 

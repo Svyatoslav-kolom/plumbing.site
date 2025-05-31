@@ -1,23 +1,8 @@
-export type RepairDetails = {
-    id: number;
-    square: number;
-    duration: string;
-    price: number;
-    imageUrl: string;
-};
-
-export type RepairFeature = {
-    id: number;
-    title: string;
-    description: string;
-    repairFeatures: string[];
-    details: RepairDetails;
-};
-
 import repairModernApartment from "../../assets/images/DoneRepairs/repair-modern-apartment.jpg";
 import repairScandiApartment from "../../assets/images/DoneRepairs/repair-scandi-house.webp";
 import repairOfficeApartment from "../../assets/images/DoneRepairs/repair-office-space.webp";
 import repairStudioApartment from "../../assets/images/DoneRepairs/repair-studio.jpg";
+import type { RepairFeature } from "../../types/repairsTypes";
 
 
 export const completedRepairs: RepairFeature[] = [
