@@ -19,6 +19,7 @@ import { Contacts } from './components/Contacts';
 import { MobileHeader } from './components/MobileHeader';
 import { MobileHeaderMenu } from './components/MobileHeaderMenu';
 import { Toaster } from './components/ui/toaster';
+import { ScrollToTopButton } from './components/ScrollToTopButton';
 
 function App() {
   const [isTermsOpen, setIsTermsOpen] = useState(false);
@@ -147,6 +148,11 @@ function App() {
           <TermsOfService onClose={onCloseTerms} />
         </FadeWrapper>
       )}
+
+      <Box>
+        <ScrollToTopButton />
+      </Box>
+
 
       <Toaster />
     </Box>
