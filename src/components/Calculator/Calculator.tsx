@@ -2,11 +2,11 @@ import { Box, HStack, Image, useBreakpointValue } from '@chakra-ui/react';
 import { useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
-//@ts-ignore
+// @ts-ignore
 import 'swiper/css';
-//@ts-ignore
+// @ts-ignore
 import 'swiper/css/navigation';
-//@ts-ignore
+// @ts-ignore
 import 'swiper/css/pagination';
 
 import ArrowRight from "../../assets/icons/ArrowRight.svg";
@@ -25,11 +25,11 @@ interface CalculatorProps {
     materialPrice: number;
     total: number;
   }>>;
-
   mode: "design" | "renovation";
 }
 
 export default function Calculator({ setPrices, mode }: CalculatorProps) {
+  // Стан форми з усіма параметрами
   const [formData, setFormData] = useState<RepairFormData>({
     repairType: 'designer',
     interiorStyle: 'minimalism',
@@ -41,27 +41,30 @@ export default function Calculator({ setPrices, mode }: CalculatorProps) {
     wallAlignment: false,
   });
 
-
   const swiperRef = useRef<any>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+
+  // Визначення мобільного перегляду
   const isMobile = useBreakpointValue({ base: true, md: false });
   const isTouchMoveRaw = useBreakpointValue({ base: true, md: false });
   const isTouchMove = isTouchMoveRaw === undefined ? true : isTouchMoveRaw;
 
+  // Кроки форми в залежності від типу пристрою і режиму
   const steps = [Step1, ...(isMobile ? [Step1_5Mobile] : []), Step2, Step3];
-
   if (mode !== "design") {
     steps.push(Step4);
   }
 
   const totalSlides = steps.length;
 
+  // Дозвіл/заборона свайпу на основі розміру екрану
   useEffect(() => {
     if (swiperRef.current) {
       swiperRef.current.allowTouchMove = isTouchMove;
     }
   }, [isTouchMove]);
 
+  // Перерахунок ціни при зміні даних
   useEffect(() => {
     const newPrices = calculatePrices(formData);
     setPrices(newPrices);
@@ -75,7 +78,7 @@ export default function Calculator({ setPrices, mode }: CalculatorProps) {
           spaceBetween={50}
           slidesPerView={1}
           pagination={{ clickable: true }}
-          loop={false} // 🔁 ВИМКНЕНО
+          loop={false} // 🔁 Вимкнено прокрутку по колу
           onSwiper={(swiper) => {
             swiperRef.current = swiper;
             setActiveIndex(swiper.activeIndex);
@@ -104,7 +107,7 @@ export default function Calculator({ setPrices, mode }: CalculatorProps) {
           ))}
         </Swiper>
 
-        {/* Стрілки */}
+        {/* Стрілки навігації між кроками */}
         <HStack
           justify="space-between"
           position="absolute"
@@ -120,7 +123,7 @@ export default function Calculator({ setPrices, mode }: CalculatorProps) {
             cursor={activeIndex === 0 ? "not-allowed" : "pointer"}
             opacity={activeIndex === 0 ? 0 : 1}
           >
-            <Image src={ArrowRight} transform="scaleX(-1)" />
+            <Image src={ArrowRight} transform="scaleX(-1)" alt="Poprzedni krok" />
           </Box>
           <Box
             as="button"
@@ -128,7 +131,7 @@ export default function Calculator({ setPrices, mode }: CalculatorProps) {
             cursor={activeIndex === totalSlides - 1 ? "not-allowed" : "pointer"}
             opacity={activeIndex === totalSlides - 1 ? 0 : 1}
           >
-            <Image src={ArrowRight} />
+            <Image src={ArrowRight} alt="Następny krok" />
           </Box>
         </HStack>
       </Box>

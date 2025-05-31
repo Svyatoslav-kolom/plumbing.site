@@ -11,9 +11,11 @@ export const TypesOfRepairs = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "center" });
   const [selectedIndex, setSelectedIndex] = useState(0);
 
+  // Функції для прокрутки слайдера вперед і назад
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
 
+  // Обробка вибору слайда для підсвічування активного
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
     setSelectedIndex(emblaApi.selectedScrollSnap());
@@ -32,14 +34,12 @@ export const TypesOfRepairs = () => {
         ml={{ base: "30px", md: "100px" }}
         mb={"20px"}
       >
-        Виды ремонта, которые мы выполняем
+        Rodzaje remontów, które wykonujemy
       </Heading>
 
       {isMobile ? (
-        <VStack
-          gap={6}
-          px={{ base: 0, md: 4 }}
-        >
+        // Верстка для мобільних — вертикальний список
+        <VStack gap={6} px={{ base: 0, md: 4 }}>
           {repairs.map((repair, index) => (
             <RepairItem
               key={index}
@@ -53,6 +53,7 @@ export const TypesOfRepairs = () => {
           ))}
         </VStack>
       ) : (
+        // Верстка для десктопу — карусель слайдів
         <Box ref={emblaRef} className="embla" position="relative">
           <Box className="embla__container">
             {repairs.map((repair, index) => (
@@ -74,12 +75,13 @@ export const TypesOfRepairs = () => {
             ))}
           </Box>
 
+          {/* Кнопки для навігації слайдером */}
           <HStack justify="center">
             <Box
               as="button"
               onClick={scrollPrev}
               cursor="pointer"
-              aria-label="Попередній слайд"
+              aria-label="Poprzedni slajd"
               position="absolute"
               top="50%"
               left="20%"
@@ -92,7 +94,7 @@ export const TypesOfRepairs = () => {
               as="button"
               onClick={scrollNext}
               cursor="pointer"
-              aria-label="Наступний слайд"
+              aria-label="Następny slajd"
               position="absolute"
               top="50%"
               right="20%"
@@ -101,6 +103,7 @@ export const TypesOfRepairs = () => {
             </Box>
           </HStack>
 
+          {/* Індикатори слайдів */}
           <HStack justify="center" mt={6} gap={2}>
             {repairs.map((_, index) => (
               <Box

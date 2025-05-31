@@ -9,6 +9,7 @@ interface Props {
   repairFeatures: string[];
 }
 
+// Компонент відображає деталі виконаного ремонту
 export const DoneRepairDetails: FC<Props> = ({
   id,
   title,
@@ -20,20 +21,23 @@ export const DoneRepairDetails: FC<Props> = ({
     borderRadius="15px"
     px={"45px"}
     py={"35px"}
-    maxH={"480px"}
+    maxH={"490px"}
   >
+    {/* Заголовок */}
     <Heading
       textStyle="blockTitle"
       fontWeight={400}
       mb={"10px"}
     >
-      {title}
+      {title}  {/* Назва ремонту */}
     </Heading>
 
+    {/* Опис ремонту */}
     <Text textStyle="text" mb={"10px"}>
       {description}
     </Text>
 
+    {/* Список особливостей ремонту */}
     <VStack
       bg="blocks.secondary"
       borderRadius="15px"
@@ -57,9 +61,9 @@ export const DoneRepairDetails: FC<Props> = ({
       ))}
     </VStack>
 
+    {/* Кнопка для розрахунку вартості */}
     <Box w={"100%"} height={"64px"}>
-      <ButtonStandart text={"Рассчитать стоимость похожего проекта"} />
+      <ButtonStandart text={"Oblicz koszt podobnego projektu"} />
     </Box>
-
   </VStack>
 );

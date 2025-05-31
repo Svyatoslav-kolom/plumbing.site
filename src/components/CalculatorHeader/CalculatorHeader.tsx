@@ -12,17 +12,19 @@ import {
 import { ButtonStandart } from '../ButtonStandart';
 import { PriceBlock } from '../PriceBlock';
 
+// Ставки на ремонт, ключі — тип ремонту, значення — ціна за м²
 const repairRates: Record<string, number> = {
-  'Косметический': 8600,
-  'Черновой': 7000,
-  'Капитальный': 12000,
-  'Дизайнерский': 15000,
+  'Kosmetyczny': 8600,
+  'Szkieletowy': 7000,
+  'Generalny': 12000,
+  'Projektowy': 15000,
 };
 
 export const CalculatorHeader: React.FC = () => {
   const [area, setArea] = useState([40]);
-  const [repairType, setRepairType] = useState('Косметический');
+  const [repairType, setRepairType] = useState('Kosmetyczny');
 
+  // Обчислюємо загальну вартість ремонту
   const totalCost = useMemo(() => {
     const rate = repairRates[repairType] || 0;
     return area[0] * rate;
@@ -38,15 +40,15 @@ export const CalculatorHeader: React.FC = () => {
       boxShadow="md"
     >
       <Text textStyle="blockTitle" color="text.black" mb={2}>
-        Получите точную смету на ваш ремонт
+        Uzyskaj dokładny kosztorys na Twój remont
       </Text>
 
       <Text textStyle="subtitle" color="text.grayDark" mb={1}>
-        Площадь помещения
+        Powierzchnia pomieszczenia
       </Text>
 
       <Input
-        value={`${area} м²`}
+        value={`${area} m²`}
         w={"130px"}
         mb={1}
         display={"block"}
@@ -80,7 +82,7 @@ export const CalculatorHeader: React.FC = () => {
       </Slider.Root>
 
       <Text textStyle="subtitle" color="text.grayDark" mb={1}>
-        Вид ремонта
+        Rodzaj remontu
       </Text>
 
       <Box
@@ -95,7 +97,6 @@ export const CalculatorHeader: React.FC = () => {
           onValueChange={(details) => {
             setRepairType(details.value as string);
           }}
-
         >
           <Stack
             direction="row"
@@ -131,13 +132,12 @@ export const CalculatorHeader: React.FC = () => {
         </RadioGroup.Root>
       </Box>
 
-
       <Text textStyle="subtitle" color="text.grayDark">
-        Итого
+        Razem
       </Text>
 
-      <Box mx={"20%"} >
-        <PriceBlock title={`${totalCost.toLocaleString('ru-RU')} $`} />
+      <Box mx={"20%"}>
+        <PriceBlock title={`${totalCost.toLocaleString('pl-PL')} zł`} />
       </Box>
 
       <Box
@@ -145,7 +145,7 @@ export const CalculatorHeader: React.FC = () => {
         h={{ base: "54px", md: "64px" }}
         mt={5}
       >
-        <ButtonStandart text={'Оставить заявку'} isLargeText={true} />
+        <ButtonStandart text={'Zostaw zgłoszenie'} isLargeText={true} />
       </Box>
     </Box>
   );

@@ -17,12 +17,13 @@ interface Props {
   onCloseMenu: () => void;
 }
 
+// Масив пунктів меню
 const menuItems: MenuItem[] = [
-  { icon: homeIcon, label: "Главная", href: "" },
-  { icon: toolsIcon, label: "Виды работы", href: "#services" },
-  { icon: stagesIcon, label: "Этапы работы", href: "#workflow" },
-  { icon: portfolioIcon, label: "Портфолио", href: "#portfolio" },
-  { icon: mastersIcon, label: "Мастера", href: "#masters" },
+  { icon: homeIcon, label: "Strona główna", href: "" },
+  { icon: toolsIcon, label: "Rodzaje prac", href: "#services" },
+  { icon: stagesIcon, label: "Etapy pracy", href: "#workflow" },
+  { icon: portfolioIcon, label: "Portfolio", href: "#portfolio" },
+  { icon: mastersIcon, label: "Zespół", href: "#masters" },
 ];
 
 export const MobileHeaderMenu: FC<Props> = ({ onCloseMenu }) => {
@@ -39,6 +40,7 @@ export const MobileHeaderMenu: FC<Props> = ({ onCloseMenu }) => {
       gap={0}
       border="1px solid #e0e0e0"
     >
+      {/* Прокручування пунктів меню */}
       {menuItems.map((item, index) => (
         <Link
           key={item.href}

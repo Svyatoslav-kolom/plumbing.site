@@ -25,7 +25,7 @@ interface Props {
   additionalInformation: AdditionalInformation
 }
 
-// Просто створюємо Motion компоненти
+// MotionBox - анімований контейнер для плавних переходів
 const MotionBox = motion.div
 
 export const RepairItem: FC<Props> = ({
@@ -38,13 +38,14 @@ export const RepairItem: FC<Props> = ({
 }) => {
   const [isExpanded, setIsExpanded] = useState(false)
 
+  // Отримуємо доступ до swiper, щоб оновити слайдер після зміни розміру
   const swiper = useSwiper()
 
   useEffect(() => {
     if (swiper) {
       setTimeout(() => {
-        swiper.update()
-      }, 0) // трохи затримки після анімації
+        swiper.update() // Оновлення swiper для правильного відображення
+      }, 0)
     }
   }, [isExpanded])
 
@@ -57,11 +58,11 @@ export const RepairItem: FC<Props> = ({
       justifyContent="space-between"
       bg="blocks.main"
       position="relative"
-      borderRadius={"15px"}
+      borderRadius="15px"
     >
-      {/* Весь контент */}
-      <Box w="100%" >
-        {/* Зображення */}
+      {/* Основний контент картки */}
+      <Box w="100%">
+        {/* Зображення ремонту */}
         <MotionBox
           initial={false}
           animate={{
@@ -78,13 +79,14 @@ export const RepairItem: FC<Props> = ({
             w="100%"
             height={{ base: "100%", xl: "300px" }}
             onError={(e) => {
+              // Якщо зображення не завантажилось — ставимо дефолтне
               const target = e.target as HTMLImageElement
               target.src = defaultImage
             }}
           />
         </MotionBox>
 
-        {/* Заголовок */}
+        {/* Заголовок ремонту */}
         <Heading
           textStyle="blockTitle"
           color="accent.main"
@@ -95,6 +97,7 @@ export const RepairItem: FC<Props> = ({
           {title}
         </Heading>
 
+        {/* Короткий опис (ховаємо на мобільних при розгортанні) */}
         <Text
           textStyle="text"
           display={{ base: isExpanded ? "none" : "block", md: "block" }}
@@ -102,12 +105,9 @@ export const RepairItem: FC<Props> = ({
           {description}
         </Text>
 
-        {/* Блок з цінами */}
+        {/* Блок з ціною і терміном ремонту */}
         <MotionBox
-          initial={{
-            opacity: 1,
-            height: "auto",
-          }}
+          initial={{ opacity: 1, height: "auto" }}
           animate={{
             opacity: isExpanded ? 0 : 1,
             height: isExpanded ? 0 : "auto",
@@ -115,24 +115,24 @@ export const RepairItem: FC<Props> = ({
           style={{ overflow: "hidden" }}
           transition={{ duration: 0.3 }}
         >
-          <HStack justify="center" mt={4} w={"100%"}>
-            <VStack w={"50%"}>
+          <HStack justify="center" mt={4} w="100%">
+            <VStack w="50%">
               <Text textStyle="subtitle" color="text.grayDark">
-                Стоимость от:
+                Koszt od:
               </Text>
               <PriceBlock title={`${price} $`} />
             </VStack>
 
-            <VStack w={"50%"}>
+            <VStack w="50%">
               <Text textStyle="subtitle" color="text.grayDark">
-                Сроки от:
+                Czas od:
               </Text>
-              <PriceBlock title={`${repairTime} міс.`} />
+              <PriceBlock title={`${repairTime} mies.`} />
             </VStack>
           </HStack>
         </MotionBox>
 
-        {/* Детальна картка */}
+        {/* Детальна інформація про ремонт (карточка) */}
         <MotionBox
           initial={false}
           animate={{
@@ -143,6 +143,7 @@ export const RepairItem: FC<Props> = ({
           style={{ overflow: "hidden" }}
           transition={{ duration: 0.3 }}
         >
+          {/* Забороняємо взаємодію, коли блок схований */}
           <Box pointerEvents={isExpanded ? "auto" : "none"}>
             <RepairCard
               additionalInformation={additionalInformation}
@@ -155,10 +156,10 @@ export const RepairItem: FC<Props> = ({
         </MotionBox>
       </Box>
 
-      {/* Кнопка завжди знизу */}
+      {/* Кнопка для розгортання/згортання */}
       <Box height="43px" w="180px">
         <ButtonStandart
-          text={isExpanded ? "Кратко" : "Детальней"}
+          text={isExpanded ? "Krótko" : "Szczegóły"}
           isLargeText={false}
           onClick={() => setIsExpanded((prev) => !prev)}
         />

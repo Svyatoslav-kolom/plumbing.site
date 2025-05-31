@@ -46,10 +46,12 @@ export const RepairCard: FC<RepairCardProps> = ({
             borderRadius={{ base: "10px", md: "0" }}
             mb={{ base: "10px", md: "0" }}
           >
+            {/* Категорія розділу */}
             <Text textStyle="subtitle" mb={2}>
               {section.category}
             </Text>
 
+            {/* Перелік пунктів у категорії */}
             <VStack align="start" gap={1}>
               {section.items.map((item, i) => (
                 <Text key={i} textStyle="text">
@@ -63,16 +65,17 @@ export const RepairCard: FC<RepairCardProps> = ({
           </Box>
         ))}
 
+        {/* Блок з ціною і терміном ремонту, видно лише на md+ */}
         <Box
           flexBasis={{ base: "100%", md: "calc(50% - 12px)" }}
           display={{ base: "none", md: "block" }}
           p={4}
           borderRadius="md"
         >
-          <VStack align="start" gap={4} w={"100%"}>
+          <VStack align="start" gap={4} w="100%">
             <Box>
               <Text textStyle="subtitle" color="text.grayDark">
-                Стоимость от:
+                Koszt od:
               </Text>
 
               <PriceBlock title={`${price} $`} />
@@ -80,10 +83,10 @@ export const RepairCard: FC<RepairCardProps> = ({
 
             <Box>
               <Text textStyle="subtitle" color="text.grayDark">
-                Сроки от:
+                Czas od:
               </Text>
 
-              <PriceBlock title={`${repairTime} мес.`} />
+              <PriceBlock title={`${repairTime} mies.`} />
             </Box>
           </VStack>
         </Box>

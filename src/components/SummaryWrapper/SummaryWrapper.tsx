@@ -23,9 +23,9 @@ export default function SummaryWrapper({ prices }: Props) {
 
   useEffect(() => {
     if (isVisible) {
-      setShouldRender(true); // монтуємо
+      setShouldRender(true);
     } else {
-      const timer = setTimeout(() => setShouldRender(false), 500); // час = тривалість анімації
+      const timer = setTimeout(() => setShouldRender(false), 500);
       return () => clearTimeout(timer);
     }
   }, [isVisible]);
@@ -48,7 +48,6 @@ export default function SummaryWrapper({ prices }: Props) {
           zIndex={1}
           animation={`${isVisible ? slideDown : slideUp} 0.5s ease-out`}
           w={"80%"}
-
         >
           <ReceiptBreakdown
             breakdown={prices.breakdown}

@@ -23,24 +23,25 @@ export function ReceiptBreakdown({ breakdown, total }: ReceiptBreakdownProps) {
       bgImage={`url(../../assets/images/check.svg)`}
       bgSize="cover"
       bgRepeat="no-repeat"
-      position="center"
-      bgColor="white"         // якщо фон зображення прозорий, і потрібен контраст
+      bgColor="white"       // фон білий для контрасту, якщо зображення прозоре
     >
+      {/* Перебір елементів з розбивкою */}
       {breakdown.map((item, i) => (
         <HStack key={i} justifyContent="space-between" py={1}>
           <Text>{item.label}</Text>
-          <Text>{item.priceImpact} грн</Text>
+          <Text>{item.priceImpact} PLN</Text>
         </HStack>
       ))}
 
+      {/* Підсумок */}
       <HStack
         justifyContent="space-between"
         mt={3}
         pt={2}
         borderTop="1px solid"
       >
-        <Text fontWeight="bold">ІТОГО</Text>
-        <Text fontWeight="bold">{total} грн</Text>
+        <Text fontWeight="bold">RAZEM</Text>
+        <Text fontWeight="bold">{total} PLN</Text>
       </HStack>
     </Box>
   );

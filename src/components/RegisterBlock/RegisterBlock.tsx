@@ -1,5 +1,11 @@
-// RegisterBlock.tsx
-import { Box, Input, VStack, CloseButton, HStack, Heading } from "@chakra-ui/react";
+import {
+  Box,
+  Input,
+  VStack,
+  CloseButton,
+  HStack,
+  Heading,
+} from "@chakra-ui/react";
 import { ButtonStandart } from "../ButtonStandart";
 
 interface RegisterBlockProps {
@@ -19,24 +25,26 @@ export const RegisterBlock: React.FC<RegisterBlockProps> = ({ onClose }) => (
     mx="auto"
     mt={10}
   >
+    {/* Заголовок і кнопка закриття */}
     <HStack justifyContent={"space-between"}>
       <Heading textStyle={"blockTitle"} fontWeight={400}>
-        Оставте заявку
+        Zostaw zgłoszenie
       </Heading>
 
       <CloseButton onClick={onClose} />
     </HStack>
 
+    {/* Поля форми */}
     <VStack gap="30px" mt="20px">
       <Input
-        placeholder="Ваше имя"
+        placeholder="Twoje imię"
         bg="blocks.secondary"
         borderRadius="md"
         _placeholder={{ color: "text.grayDark" }}
         height="60px"
       />
       <Input
-        placeholder="Номер телефона"
+        placeholder="Numer telefonu"
         bg="blocks.secondary"
         borderRadius="md"
         _placeholder={{ color: "text.grayDark" }}
@@ -44,8 +52,9 @@ export const RegisterBlock: React.FC<RegisterBlockProps> = ({ onClose }) => (
       />
     </VStack>
 
+    {/* Кнопка відправки */}
     <Box w="272px" height="53px" mt="50px" mx="auto">
-      <ButtonStandart text="Заявка" isLargeText={true} />
+      <ButtonStandart text="Wyślij" isLargeText={true} />
     </Box>
   </Box>
 );

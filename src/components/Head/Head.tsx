@@ -29,14 +29,16 @@ export const Head = () => {
       gap={{ base: "30px", md: "100px" }}
       flexDirection={{ base: "column", md: "row" }}
     >
+      {/* Ліва частина — заголовок, опис та перемикач */}
       <VStack w={{ base: "100%", md: "50%" }} gap={4}>
         <Heading textStyle={"pageTitle"} fontWeight={500}>
-          Лучший ремонт в Кракове
+          Najlepszy remont w Krakowie
         </Heading>
 
         <Text textStyle={"text"}>
-          Занимаемся как ремонтом так и дизайном. Оставьте заявку на бесплатную
-          консультацию, мы свяжемся с вами в течении 30 минут и отправим замерщика на дом.
+          Zajmujemy się zarówno remontem, jak i projektowaniem wnętrz.
+          Zostaw zgłoszenie na bezpłatną konsultację — skontaktujemy się z Tobą w ciągu 30 minut
+          i wyślemy fachowca na miejsce.
         </Text>
 
         <Flex
@@ -46,8 +48,9 @@ export const Head = () => {
           gap={{ base: 0, md: 4 }}
           w={"100%"}
         >
+          {/* Перемикач між режимами */}
           <Text textStyle="blockTitle" color={isDesign ? "text.grayDark" : "text.black"}>
-            Ремонт
+            Remont
           </Text>
 
           <Box>
@@ -61,11 +64,12 @@ export const Head = () => {
           </Box>
 
           <Text textStyle="blockTitle" color={isDesign ? "text.black" : "text.grayDark"}>
-            Дизайн
+            Projekt
           </Text>
         </Flex>
       </VStack>
 
+      {/* Права частина — калькулятор */}
       <CalculatorHeader />
     </Stack>
   );

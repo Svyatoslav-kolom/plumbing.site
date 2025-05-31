@@ -3,15 +3,17 @@ import { repairSteps } from "./repairSteps.ts";
 import { StagesItem } from "../StagesItem";
 
 export const StagesOfWork = () => (
-  <Box >
+  <Box>
+    {/* Заголовок секції з описом етапів */}
     <Heading
       textStyle={"pageTitle"}
       mb={6}
       maxW={"800px"}
     >
-      Работа состоит из 6 этапов
+      Praca składa się z 6 etapów
     </Heading>
 
+    {/* Сітка для відображення етапів ремонту */}
     <SimpleGrid
       columns={{ base: 2, md: 2, lg: 3 }}
       gap={"40px"}

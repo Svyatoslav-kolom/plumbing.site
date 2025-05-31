@@ -7,9 +7,9 @@ import { DoneRepairItemMobile } from "../DoneRepairItemMobile";
 import { SwiperSlide, Swiper } from "swiper/react";
 import "./swiper-pagination.css";
 //@ts-ignore
-import 'swiper/css/pagination';
+import "swiper/css/pagination";
 //@ts-ignore
-import 'swiper/css';
+import "swiper/css";
 import { Pagination } from "swiper/modules";
 import { useMode } from "../../utils/urlMode";
 import { completedDesigns } from "./completedDesigns";
@@ -21,19 +21,17 @@ export const DoneRepairs = () => {
   const [activeId, setActiveId] = useState(currentRepairs[0].details.id);
   const activeRepair = currentRepairs.find(r => r.details.id === activeId);
 
-  // Перевірка: чи мобільна версія (base / sm)
+  // Перевірка, чи це мобільна версія (base / sm)
   const isMobile = useBreakpointValue({ base: true, md: false });
-
-
 
   if (isMobile) {
     return (
       <Box padding={4}>
         <Heading textStyle="pageTitle" pb="12px" px="22px">
-          {mode === "design" ? "Выполненые дизайны" : "Выполненые ремонты"}
+          {mode === "design" ? "Wykonane projekty" : "Wykonane remonty"}
         </Heading>
 
-        {/* Кастомний контейнер для точок пагінації */}
+        {/* Контейнер для кастомних точок пагінації */}
         <Box
           className="done-repairs-pagination"
           display="flex"
@@ -74,19 +72,20 @@ export const DoneRepairs = () => {
       justifyContent="space-between"
       h={{ md: "70vh", lg: "110vh" }}
     >
-      <Heading textStyle={"pageTitle"} display={{ md: "block", xl: "none" }}>
-        {mode === "design" ? "Выполненые дизайны" : "Выполненые ремонты"}
+      <Heading textStyle="pageTitle" display={{ md: "block", xl: "none" }}>
+        {mode === "design" ? "Wykonane projekty" : "Wykonane remonty"}
       </Heading>
 
       {activeRepair && (
         <VStack
-          maxW={"490px"}
-          gap={"40px"}
-          height={"100%"}
+          maxW="500px"
+          w={"50%"}
+          gap="40px"
+          
           display={{ md: "none", xl: "flex" }}
         >
-          <Heading textStyle={"pageTitle"}>
-            {mode === "design" ? "Выполненые дизайны" : "Выполненые ремонты"}
+          <Heading textStyle="pageTitle">
+            {mode === "design" ? "Wykonane projekty" : "Wykonane remonty"}
           </Heading>
 
           <DoneRepairDetails
@@ -98,11 +97,7 @@ export const DoneRepairs = () => {
         </VStack>
       )}
 
-      <VerticalSlider
-        repairDetails={currentRepairs}
-        onActiveChange={setActiveId}
-      />
-
+      <VerticalSlider repairDetails={currentRepairs} onActiveChange={setActiveId} />
     </Stack>
   );
 };

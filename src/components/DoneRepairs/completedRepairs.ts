@@ -4,58 +4,58 @@ import repairOfficeApartment from "../../assets/images/DoneRepairs/repair-office
 import repairStudioApartment from "../../assets/images/DoneRepairs/repair-studio.jpg";
 import type { RepairFeature } from "../../types/repairsTypes";
 
-
+// Масив виконаних ремонтів з перекладеними описами і характеристиками
 export const completedRepairs: RepairFeature[] = [
-    {
-        id: 1,
-        title: "Квартира в сучасному стилі",
-        description: "Повний ремонт трикімнатної квартири з переплануванням та меблями.",
-        repairFeatures: ["Натяжні стелі", "Світлодіодне освітлення", "Тепла підлога", "Модульні меблі"],
-        details: {
-            id: 1,
-            square: 85,
-            duration: "3 місяці",
-            price: 580000,
-            imageUrl: repairModernApartment,
-        },
+  {
+    id: 1,
+    title: "Mieszkanie w stylu nowoczesnym",
+    description: "Kompleksowy remont trzypokojowego mieszkania z przebudową i meblami.",
+    repairFeatures: ["Sufity napinane", "Oświetlenie LED", "Ogrzewanie podłogowe", "Meble modułowe"],
+    details: {
+      id: 1,
+      square: 85,
+      duration: "3 miesiące",
+      price: 580000,
+      imageUrl: repairModernApartment,
     },
-    {
-        id: 2,
-        title: "Будинок у скандинавському стилі",
-        description: "Ремонт приватного будинку з оздобленням деревом і панорамними вікнами.",
-        repairFeatures: ["Фасадні роботи", "Сантехніка", "Камін", "Паркетна підлога"],
-        details: {
-            id: 2,
-            square: 160,
-            duration: "5 місяців",
-            price: 1150000,
-            imageUrl: repairScandiApartment,
-        },
+  },
+  {
+    id: 2,
+    title: "Dom w stylu skandynawskim",
+    description: "Remont domu jednorodzinnego z drewnianą dekoracją i panoramicznymi oknami.",
+    repairFeatures: ["Prace elewacyjne", "Hydraulika", "Kominek", "Podłoga parkietowa"],
+    details: {
+      id: 2,
+      square: 160,
+      duration: "5 miesięcy",
+      price: 1150000,
+      imageUrl: repairScandiApartment,
     },
-    {
-        id: 3,
-        title: "Офіс для IT-компанії",
-        description: "Створення комфортного open space офісу для 20+ працівників.",
-        repairFeatures: ["Скляні перегородки", "Серверна кімната", "Акустичні панелі", "Кухонна зона"],
-        details: {
-            id: 3,
-            square: 120,
-            duration: "2 місяці",
-            price: 800000,
-            imageUrl: repairOfficeApartment,
-        },
+  },
+  {
+    id: 3,
+    title: "Biuro dla firmy IT",
+    description: "Stworzenie komfortowego open space dla ponad 20 pracowników.",
+    repairFeatures: ["Szklane ścianki działowe", "Serwerownia", "Panele akustyczne", "Strefa kuchennego"],
+    details: {
+      id: 3,
+      square: 120,
+      duration: "2 miesiące",
+      price: 800000,
+      imageUrl: repairOfficeApartment,
     },
-    {
-        id: 4,
-        title: "Студія для молодої пари",
-        description: "Затишне житло з поєднанням кухні, вітальні та спальні.",
-        repairFeatures: ["Зонування простору", "Барна стійка", "Інтерактивне освітлення", "Вбудована техніка"],
-        details: {
-            id: 4,
-            square: 45,
-            duration: "1.5 місяці",
-            price: 350000,
-            imageUrl: repairStudioApartment,
-        },
+  },
+  {
+    id: 4,
+    title: "Studio dla młodej pary",
+    description: "Przytulne mieszkanie łączące kuchnię, salon i sypialnię.",
+    repairFeatures: ["Strefowanie przestrzeni", "Bar", "Interaktywne oświetlenie", "Wbudowany sprzęt AGD"],
+    details: {
+      id: 4,
+      square: 45,
+      duration: "1,5 miesiąca",
+      price: 350000,
+      imageUrl: repairStudioApartment,
     },
+  },
 ];

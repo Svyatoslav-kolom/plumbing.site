@@ -10,6 +10,7 @@ interface Step2Props {
 }
 
 export default function Step2({ setFormData, formData, swiperRef }: Step2Props) {
+  // Вимикаємо свайп при взаємодії з повзунком
   const handleTouchStart = () => {
     swiperRef.current?.allowTouchMove && (swiperRef.current.allowTouchMove = false);
   };
@@ -23,12 +24,14 @@ export default function Step2({ setFormData, formData, swiperRef }: Step2Props) 
     "layout.dark",
   ]);
 
+  // Задаємо розмір слайдера в залежності від брейкпоінта
   const isMobile = useBreakpointValue({ base: 233, md: 270 });
 
   return (
     <Box>
+      {/* Заголовок блоку */}
       <Text textStyle="blockTitle" mb={4} textAlign="center" w="100%">
-        Укажите площадь помещения
+        Wybierz metraż
       </Text>
 
       <Stack
@@ -43,11 +46,13 @@ export default function Step2({ setFormData, formData, swiperRef }: Step2Props) 
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
+        {/* Підпис до повзунка */}
         <Text fontSize="md" mb="8px">
-          Площа (м²)
+          Powierzchnia (m²)
         </Text>
 
         <Box position="relative">
+          {/* Вивід значення поверх слайдера */}
           <Box
             key={formData.area}
             style={{
@@ -55,15 +60,15 @@ export default function Step2({ setFormData, formData, swiperRef }: Step2Props) 
               top: "50%",
               left: "50%",
               transform: "translate(-50%, -50%)",
-              pointerEvents: "none", // важливо!
+              pointerEvents: "none", // важливо — не блокує слайдер
             }}
           >
-            <Text textStyle={"blockTitle"}>
-              {formData.area} м²
+            <Text textStyle="blockTitle">
+              {formData.area} m²
             </Text>
           </Box>
 
-          {/* Кружок-слайдер */}
+          {/* Кружок-слайдер для вибору площі */}
           <CircularSlider
             size={isMobile}
             handleSize={22}

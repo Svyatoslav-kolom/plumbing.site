@@ -10,31 +10,33 @@ interface Step1Props {
 
 export const Step1 = ({ formData, setFormData, mode }: Step1Props) => {
   const repairTypeItems = [
-    { value: 'cosmetic', label: 'Косметический' },
-    { value: 'capital', label: 'Капитальный' },
-    { value: 'black', label: 'Черновой' },
-    { value: 'designer', label: 'Дизайнерский' },
+    { value: 'cosmetic', label: 'Kosmetyczny' },
+    { value: 'capital', label: 'Kapitalny' },
+    { value: 'black', label: 'Deweloperski' },
+    { value: 'designer', label: 'Designerski' },
   ];
 
   const interiorStyleItems = [
-    { value: 'minimalism', label: 'Минимализм' },
-    { value: 'loft', label: 'Лофт' },
-    { value: 'classic', label: 'Классика' },
-    { value: 'hi-tech', label: 'Хай-тек' },
+    { value: 'minimalism', label: 'Minimalizm' },
+    { value: 'loft', label: 'Loft' },
+    { value: 'classic', label: 'Klasyka' },
+    { value: 'hi-tech', label: 'Hi-tech' },
   ];
 
   const houseTypeItems = [
-    { value: 'new', label: 'Новостройка' },
-    { value: 'secondary', label: 'Вторичное жилье' },
-    { value: 'cottage', label: 'Коттедж или таунхаус' },
+    { value: 'new', label: 'Nowe' },
+    { value: 'secondary', label: 'Wtórne' },
+    { value: 'cottage', label: 'Domek' },
   ];
 
   return (
     <Box>
+      {/* Заголовок блоку: залежить від режиму */}
       <Text textStyle="blockTitle" mb={4} textAlign="center">
-        {mode === 'design' ? 'Укажите стиль интерьера' : 'Укажите вид ремонта'}
+        {mode === 'design' ? 'Wybierz styl wnętrza' : 'Wybierz rodzaj remontu'}
       </Text>
 
+      {/* Вибір стилю або типу ремонту */}
       <VStack
         textStyle="text"
         bg="blocks.secondary"
@@ -45,7 +47,7 @@ export const Step1 = ({ formData, setFormData, mode }: Step1Props) => {
         align="start"
       >
         <Text mb={2} alignSelf="flex-start">
-          {mode === 'design' ? 'Стиль интерьера:' : 'Вид ремонта:'}
+          {mode === 'design' ? 'Styl wnętrza:' : 'Rodzaj remontu:'}
         </Text>
 
         <RadioGroup.Root
@@ -97,9 +99,10 @@ export const Step1 = ({ formData, setFormData, mode }: Step1Props) => {
         px="30px"
         py="15px"
         borderRadius="10px"
+        align="start"
       >
         <Text mb={2} alignSelf="flex-start">
-          Тип жилья:
+          Rodzaj nieruchomości:
         </Text>
 
         <RadioGroup.Root

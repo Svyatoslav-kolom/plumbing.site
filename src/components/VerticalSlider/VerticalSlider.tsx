@@ -10,21 +10,16 @@ import { DoneRepairItemMobile } from '../DoneRepairItemMobile';
 import type { RepairFeature } from '../../types/repairsTypes';
 
 type VerticalSliderProps = {
-  repairDetails: RepairFeature[]; // ← тут замінили тип
-  onActiveChange?: (id: number) => void;
+  repairDetails: RepairFeature[]; // Масив деталей ремонту або дизайну
+  onActiveChange?: (id: number) => void; // Колбек при зміні активного слайду
 };
 
 export const VerticalSlider = ({ repairDetails, onActiveChange }: VerticalSliderProps) => {
-  const isMobile = useBreakpointValue({ base: true, md: true, xl: false }); // true для md і нижче
+  // Визначаємо, чи мобільний розмір екрану (base і md — мобільні, xl — десктоп)
+  const isMobile = useBreakpointValue({ base: true, md: true, xl: false });
 
   return (
-    <Flex
-      height="100%"
-      width="100%"
-      overflow="hidden"
-      position="relative"
-    // height="100vh"
-    >
+    <Flex height="100%" width="100%" overflow="hidden" position="relative">
       <Box flex="1" overflow="hidden">
         <Swiper
           direction="vertical"
@@ -38,6 +33,7 @@ export const VerticalSlider = ({ repairDetails, onActiveChange }: VerticalSlider
           pagination={{ clickable: true }}
           style={{ height: '100%' }}
           onSlideChange={(swiper) => {
+            // Визначаємо активний слайд і викликаємо колбек з його id
             const realIndex = swiper.realIndex;
             const activeItem = repairDetails[realIndex];
             if (activeItem && onActiveChange) {
@@ -68,24 +64,24 @@ export const VerticalSlider = ({ repairDetails, onActiveChange }: VerticalSlider
               }
             </SwiperSlide>
           ))}
-
         </Swiper>
       </Box>
 
+      {/* Стилі для ефектів слайдів */}
       <style>{`
         .custom-swiper .swiper-slide {
           display: flex;
           justify-content: center;
           align-items: center;
           transition: transform 0.3s ease, filter 0.3s ease;
-          filter: blur(4px); /* додаємо розмиття за замовчуванням */
+          filter: blur(4px); /* Rozmycie domyślne */
           transform: scale(0.8);
           opacity: 0.6;
           z-index: 1;
         }
 
         .custom-swiper .swiper-slide-active {
-          filter: none; /* активний слайд не розмитий */
+          filter: none; /* Aktywny slajd bez rozmycia */
           transform: scale(1) translateY(0);
           opacity: 1;
           z-index: 2;

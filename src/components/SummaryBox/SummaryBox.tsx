@@ -20,9 +20,10 @@ export default function SummaryBox({ prices, onToggleReceipt }: Props) {
       position="relative"
       overflow="visible"
       zIndex={1}
-       w="100%"
+      w="100%"
     >
-      <Text textStyle="blockTitle">Розрахунок вартості</Text>
+      {/* Заголовок секції */}
+      <Text textStyle="blockTitle">Obliczenie kosztów</Text>
 
       <VStack gap="10px" w="100%">
         <HStack w="100%">
@@ -35,9 +36,9 @@ export default function SummaryBox({ prices, onToggleReceipt }: Props) {
             w="100%"
           >
             <Text textStyle="text" color="text.grayDark">
-              Ціна роботи
+              Cena pracy
             </Text>
-            <Text>{prices.workPrice} грн</Text>
+            <Text>{prices.workPrice} PLN</Text>
           </Box>
 
           <Box
@@ -48,10 +49,11 @@ export default function SummaryBox({ prices, onToggleReceipt }: Props) {
             borderRadius="10px"
             w="100%"
           >
-            <Text textStyle="text" color="text.grayDark" textWrap="nowrap">
-              Ціна матеріалів
+            {/* Запобігаємо переносу тексту */}
+            <Text textStyle="text" color="text.grayDark" whiteSpace="nowrap">
+              Cena materiałów
             </Text>
-            <Text>{prices.materialPrice} грн</Text>
+            <Text>{prices.materialPrice} PLN</Text>
           </Box>
         </HStack>
 
@@ -63,15 +65,15 @@ export default function SummaryBox({ prices, onToggleReceipt }: Props) {
           borderRadius="10px"
           w="90%"
         >
-          <Text textStyle="text" color="text.grayDark" textWrap="nowrap">
-            Сума
+          <Text textStyle="text" color="text.grayDark" whiteSpace="nowrap">
+            Suma
           </Text>
-          <Text>{prices.total} грн</Text>
+          <Text>{prices.total} PLN</Text>
         </Box>
 
         <Box height="70px" width="90%" mt="5px">
           <ButtonStandart
-            text="Розрахунок"
+            text="Oblicz"
             isLargeText
             onClick={onToggleReceipt}
           />

@@ -1,5 +1,3 @@
-// DoneRepairItem.tsx
-
 import { Box, HStack, Image, Text } from "@chakra-ui/react";
 import type { FC } from "react";
 import defaultImage from "../../assets/images/CompletedRepairs/Default.png";
@@ -15,20 +13,21 @@ interface Props {
   showDetails?: boolean; // новий пропс, за замовчуванням true
 }
 
+// Конфіг для інформаційних блоків: іконка і форматований текст
 const infoItems = [
   {
     icon: zlotyIcon,
-    getText: (price: number) => `${price} ZL`,
+    getText: (price: number) => `${price} ZŁ`, // польська валюта — złoty
     key: "price" as const,
   },
   {
     icon: calendarIcon,
-    getText: (duration: string) => duration,
+    getText: (duration: string) => duration, // тривалість лишаємо як є, припускаємо польський формат
     key: "duration" as const,
   },
   {
     icon: squareIcon,
-    getText: (square: number) => `${square} м²`,
+    getText: (square: number) => `${square} m²`, // метр квадратний польською (m²)
     key: "square" as const,
   },
 ];
@@ -40,6 +39,7 @@ export const DoneRepairItem: FC<Props> = ({
   square,
   showDetails = true,
 }) => {
+  // Фолбек, якщо зображення не завантажилось
   const fallbackImage = (e: React.SyntheticEvent<HTMLImageElement>) => {
     e.currentTarget.src = defaultImage;
   };
@@ -50,18 +50,20 @@ export const DoneRepairItem: FC<Props> = ({
       borderRadius="20px"
       overflow="hidden"
       w={"98%"}
-
+      maxW="620px"
     >
+      {/* Зображення ремонту */}
       <Image
         src={image}
-        alt="repair"
+        alt="remont"
         objectFit="cover"
-        w="100%"
+        w={"100%"}
         maxH={"400px"}
         onError={fallbackImage}
         borderTopRadius="20px"
       />
 
+      {/* Показуємо деталі, якщо showDetails=true */}
       {showDetails && (
         <HStack
           gap={"10px"}
@@ -72,12 +74,17 @@ export const DoneRepairItem: FC<Props> = ({
         >
           {infoItems.map((item) => {
             let content: string = "";
-            if (item.key === "price") {
-              content = item.getText(price);
-            } else if (item.key === "duration") {
-              content = item.getText(duration);
-            } else if (item.key === "square") {
-              content = item.getText(square);
+
+            switch (item.key) {
+              case "price":
+                content = item.getText(price);
+                break;
+              case "duration":
+                content = item.getText(duration);
+                break;
+              case "square":
+                content = item.getText(square);
+                break;
             }
 
             return (

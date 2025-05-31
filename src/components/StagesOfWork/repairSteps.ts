@@ -1,9 +1,9 @@
-import icon1 from '../../assets/icons/RepairSteps/1.svg'
-import icon2 from '../../assets/icons/RepairSteps/2.svg'
-import icon3 from '../../assets/icons/RepairSteps/3.svg'
-import icon4 from '../../assets/icons/RepairSteps/4.svg'
-import icon5 from '../../assets/icons/RepairSteps/5.svg'
-import icon6 from '../../assets/icons/RepairSteps/6.svg'
+import icon1 from '../../assets/icons/RepairSteps/1.svg';
+import icon2 from '../../assets/icons/RepairSteps/2.svg';
+import icon3 from '../../assets/icons/RepairSteps/3.svg';
+import icon4 from '../../assets/icons/RepairSteps/4.svg';
+import icon5 from '../../assets/icons/RepairSteps/5.svg';
+import icon6 from '../../assets/icons/RepairSteps/6.svg';
 
 export interface RepairStep {
   title: string;
@@ -11,41 +11,42 @@ export interface RepairStep {
   icon: string;
 }
 
+// Масив кроків ремонту з перекладом на польську мову
 export const repairSteps: RepairStep[] = [
   {
-    title: 'Замеры и расчет сметы',
+    title: 'Pomiary i wycena',
     icon: icon1,
     description:
-      'Замеряем объект, учитываем ваши задачи, создаем точную смету и дизайн-проект для ремонта под ключ.',
+      'Dokonujemy pomiarów obiektu, uwzględniamy Twoje wymagania, tworzymy dokładną wycenę oraz projekt wnętrza pod klucz.',
   },
   {
-    title: 'Подписание договора',
+    title: 'Podpisanie umowy',
     icon: icon2,
     description:
-      'Закрепляем сроки и цену в договоре. Уточняем дату начала работ. Возможна рассрочка на материалы и ремонт.',
+      'Ustalamy terminy i cenę w umowie. Określamy datę rozpoczęcia prac. Możliwość ratalnej płatności za materiały i remont.',
   },
   {
-    title: 'Решаем любые вопросы',
+    title: 'Rozwiązywanie wszelkich kwestii',
     icon: icon3,
     description:
-      'Составляем список нужных материалов, подбираем поставщиков. При желании всё закупим за вас.',
+      'Sporządzamy listę potrzebnych materiałów i dobieramy dostawców. Na życzenie możemy wszystko za Ciebie zakupić.',
   },
   {
-    title: 'Ремонтные работы',
+    title: 'Prace remontowe',
     icon: icon4,
     description:
-      'Фиксируем каждый этап работ. Отчитываемся еженедельно. Вы платите только после выполнения каждого этапа.',
+      'Dokumentujemy każdy etap prac. Raportujemy co tydzień. Płacisz dopiero po zakończeniu danego etapu.',
   },
   {
-    title: 'Контроль качества',
+    title: 'Kontrola jakości',
     icon: icon5,
     description:
-      'Каждый этап капитального ремонта проверяют 4 квалифицированных специалиста из нашей команды.',
+      'Każdy etap remontu głównego jest sprawdzany przez 4 wykwalifikowanych specjalistów z naszego zespołu.',
   },
   {
-    title: 'Уборка и сдача проекта',
+    title: 'Sprzątanie i przekazanie projektu',
     icon: icon6,
     description:
-      'Проводим финальную уборку, вывозим мусор. Сдаём вам чистый, готовый к жизни объект.',
+      'Przeprowadzamy końcowe sprzątanie i wywóz śmieci. Oddajemy Ci czysty, gotowy do zamieszkania obiekt.',
   },
 ];

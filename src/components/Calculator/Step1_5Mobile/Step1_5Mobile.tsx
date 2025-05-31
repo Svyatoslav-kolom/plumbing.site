@@ -7,21 +7,23 @@ interface Step1Props {
   setFormData: Dispatch<SetStateAction<RepairFormData>>;
 }
 
+// Варіанти типу житла
 const houseTypeItems = [
-  { value: 'new', label: 'Новостройка' },
-  { value: 'secondary', label: 'Вторичное жилье' },
-  { value: 'cottage', label: 'Коттедж или таунхаус' },
+  { value: 'new', label: 'Nowe' },
+  { value: 'secondary', label: 'Wtórne' },
+  { value: 'cottage', label: 'Domek' },
 ];
 
 export const Step1_5Mobile = ({ formData, setFormData }: Step1Props) => {
   return (
     <Box>
+      {/* Заголовок блоку */}
       <Text
         textStyle="blockTitle"
         mb={4}
         textAlign="center"
       >
-        Укажите тип жилья
+        Wskaż typ mieszkania
       </Text>
 
       <VStack
@@ -31,10 +33,11 @@ export const Step1_5Mobile = ({ formData, setFormData }: Step1Props) => {
         py="15px"
         borderRadius="10px"
         align="start"
-        height={"100%"}
+        height="100%"
       >
+        {/* Підпис до радіо-групи */}
         <Text mb={2} alignSelf="flex-start">
-          Тип жилья:
+          Typ mieszkania:
         </Text>
 
         <RadioGroup.Root
@@ -60,9 +63,10 @@ export const Step1_5Mobile = ({ formData, setFormData }: Step1Props) => {
                     borderColor={isActive ? 'accent.main' : 'layout.dark'}
                     bg="white"
                     cursor="pointer"
-
                   />
-                  <RadioGroup.ItemText textStyle="text">{item.label}</RadioGroup.ItemText>
+                  <RadioGroup.ItemText textStyle="text">
+                    {item.label}
+                  </RadioGroup.ItemText>
                 </RadioGroup.Item>
               );
             })}

@@ -1,4 +1,3 @@
-// Header.tsx
 import {
   Box,
   Flex,
@@ -24,23 +23,23 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ onOpenRegister, onOpenContacts }) => {
-
   const [mode, setMode] = useMode();
   const isDesign = mode === "design";
+
   const handleSwitchChange = (val: boolean) => {
     setMode(val ? "design" : "renovation");
   };
 
   return (
     <Box>
-      {/* Лого */}
+      {/* Logo */}
       <Box position="absolute" top="20px" left={{ md: "60px", xl: "100px" }}>
         <Box boxSize={{ md: "150px", xl: "186px" }}>
           <Logo />
         </Box>
       </Box>
 
-      {/* Верхний блок */}
+      {/* Верхня панель*/}
       <Flex
         bg="layout.header"
         align="end"
@@ -63,7 +62,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenRegister, onOpenContacts }) => {
             onClick={() => {
               navigator.clipboard.writeText("kontakt@remontykrakova.pl");
               toaster.create({
-                description: "Email скопійовано",
+                description: "E-mail został skopiowany",
                 type: "success",
               });
             }}
@@ -72,19 +71,17 @@ const Header: React.FC<HeaderProps> = ({ onOpenRegister, onOpenContacts }) => {
             kontakt@remontykrakova.pl
           </Text>
 
-
-          <Text textStyle="text">ПН-ВТ 9:00–8:00</Text>
+          <Text textStyle="text">PN-WT 9:00–20:00</Text>
 
           <Flex align="center" gap={1}>
             <FaPhone />
-
             <Text
               textStyle="text"
               cursor="pointer"
               onClick={() => {
                 navigator.clipboard.writeText("+48 883 465 816");
                 toaster.create({
-                  description: "Телефон скопійовано",
+                  description: "Telefon został skopiowany",
                   type: "success",
                 });
               }}
@@ -92,13 +89,12 @@ const Header: React.FC<HeaderProps> = ({ onOpenRegister, onOpenContacts }) => {
             >
               +48 883 465 816
             </Text>
-
           </Flex>
         </Flex>
 
         <HStack height={"52px"} mb={{ md: "15px", xl: "0" }} gap="15px">
-          <Box w="200px" >
-            <ButtonStandart text="Заявка" isLargeText={true} onClick={() => onOpenRegister(true)} />
+          <Box w="200px">
+            <ButtonStandart text="Zgłoszenie" isLargeText={true} onClick={() => onOpenRegister(true)} />
           </Box>
 
           <Link
@@ -119,12 +115,10 @@ const Header: React.FC<HeaderProps> = ({ onOpenRegister, onOpenContacts }) => {
           >
             <Image src={contactsIcon} boxSize="40px" height={"100%"} />
           </Button>
-
         </HStack>
-
       </Flex>
 
-      {/* Нижний блок */}
+      {/* Нижня панель */}
       <Flex
         bg="layout.background"
         px="44px"
@@ -135,10 +129,10 @@ const Header: React.FC<HeaderProps> = ({ onOpenRegister, onOpenContacts }) => {
         textStyle="text"
       >
         <Flex gap={4} align="center" flexWrap="wrap">
-          <Link color="text.white" href="#services">Виды работы</Link>
-          <Link color="text.white" href="#workflow">Этапы работы</Link>
-          <Link color="text.white" href="#portfolio">Портфолио</Link>
-          <Link color="text.white" href="#masters">Мастера</Link>
+          <Link color="text.white" href="#services">Rodzaje prac</Link>
+          <Link color="text.white" href="#workflow">Etapy pracy</Link>
+          <Link color="text.white" href="#portfolio">Portfolio</Link>
+          <Link color="text.white" href="#masters">Zespół</Link>
 
           <Button
             as="a"
@@ -152,7 +146,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenRegister, onOpenContacts }) => {
             _hover={{ textDecoration: "none", bg: "accent.dark" }}
             display={{ md: "none", xl: "block" }}
           >
-            Расчет
+            Kalkulator
           </Button>
 
           <Button
@@ -165,25 +159,19 @@ const Header: React.FC<HeaderProps> = ({ onOpenRegister, onOpenContacts }) => {
             _hover={{ bg: "accent.dark" }}
             display={{ md: "none", xl: "block" }}
           >
-            Контакты
+            Kontakt
           </Button>
 
-
           <Flex align="center" gap={2}>
-            <Text color="text.white">
-              Ремонт
-            </Text>
+            <Text color="text.white">Remont</Text>
 
             <CustomSwitch
               checked={isDesign}
               onChange={handleSwitchChange}
             />
 
-            <Text color="text.white">
-              Дизайн
-            </Text>
+            <Text color="text.white">Projekt</Text>
           </Flex>
-
         </Flex>
       </Flex>
     </Box>

@@ -8,12 +8,12 @@ export const Team = () => (
     p={6}
   >
     <Heading
-      textStyle={"pageTitle"}
+      textStyle="pageTitle"
       mb={6}
-      maxW={"800px"}
+      maxW="800px"
       ml={{ base: "auto", md: "100px" }}
     >
-      Наши мастера
+      Nasi specjaliści
     </Heading>
 
     <Flex
@@ -23,6 +23,7 @@ export const Team = () => (
       mx="auto"
       align="flex-start"
     >
+      {/* Рендеримо кожну картку учасника команди */}
       {teamMembers.map((member) => (
         <TeamCard key={member.id} member={member} />
       ))}

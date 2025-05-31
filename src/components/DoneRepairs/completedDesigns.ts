@@ -5,78 +5,78 @@ import designLoftOffice from "../../assets/images/DoneDesigns/design-loft-office
 import designEclecticStudio from "../../assets/images/DoneDesigns/design-eclectic-studio.jpg";
 import designClassicHouse from "../../assets/images/DoneDesigns/design-classic-house.jpg";
 
-
+// Масив завершених дизайн-проектів з польським перекладом
 export const completedDesigns: RepairFeature[] = [
-    {
-        id: 1,
-        title: "Мінімалістична квартира",
-        description: "Дизайн інтер'єру для однокімнатної квартири у стилі мінімалізм.",
-        repairFeatures: [
-            "Світлі тони",
-            "Приховане зберігання",
-            "Функціональні меблі",
-            "Лаконічне освітлення"
-        ],
-        details: {
-            id: 1,
-            square: 40,
-            duration: "1 місяць",
-            price: 12000,
-            imageUrl: designMinimalistApartment,
-        },
+  {
+    id: 1,
+    title: "Minimalistyczne mieszkanie",
+    description: "Projekt wnętrza jednopokojowego mieszkania w stylu minimalistycznym.",
+    repairFeatures: [
+      "Jasne tony",
+      "Ukryte przechowywanie",
+      "Funkcjonalne meble",
+      "Proste oświetlenie"
+    ],
+    details: {
+      id: 1,
+      square: 40,
+      duration: "1 miesiąc",
+      price: 12000,
+      imageUrl: designMinimalistApartment,
     },
-    {
-        id: 2,
-        title: "Офіс у стилі лофт",
-        description: "Інтер'єр офісу для креативної агенції з елементами індустріального стилю.",
-        repairFeatures: [
-            "Відкрита цегляна кладка",
-            "Металеві деталі",
-            "Контрастне освітлення",
-            "Меблі з перероблених матеріалів"
-        ],
-        details: {
-            id: 2,
-            square: 100,
-            duration: "2 місяці",
-            price: 30000,
-            imageUrl: designLoftOffice,
-        },
+  },
+  {
+    id: 2,
+    title: "Biuro w stylu loft",
+    description: "Wnętrze biura dla kreatywnej agencji z elementami stylu industrialnego.",
+    repairFeatures: [
+      "Odsłonięta ceglana ściana",
+      "Metalowe detale",
+      "Kontrastowe oświetlenie",
+      "Meble z materiałów recyklingowych"
+    ],
+    details: {
+      id: 2,
+      square: 100,
+      duration: "2 miesiące",
+      price: 30000,
+      imageUrl: designLoftOffice,
     },
-    {
-        id: 3,
-        title: "Еклектична студія",
-        description: "Сміливий мікс сучасного мистецтва, класики та етнічних мотивів.",
-        repairFeatures: [
-            "Яскраві кольори",
-            "Ретро меблі",
-            "Авторські декори",
-            "Дизайнерське освітлення"
-        ],
-        details: {
-            id: 3,
-            square: 55,
-            duration: "1.5 місяця",
-            price: 18000,
-            imageUrl: designEclecticStudio,
-        },
+  },
+  {
+    id: 3,
+    title: "Eklektyczne studio",
+    description: "Śmiałe połączenie sztuki współczesnej, klasyki i motywów etnicznych.",
+    repairFeatures: [
+      "Jaskrawe kolory",
+      "Meble retro",
+      "Dekoracje autorskie",
+      "Designerskie oświetlenie"
+    ],
+    details: {
+      id: 3,
+      square: 55,
+      duration: "1,5 miesiąca",
+      price: 18000,
+      imageUrl: designEclecticStudio,
     },
-    {
-        id: 4,
-        title: "Класичний заміський будинок",
-        description: "Інтер’єр у витриманому класичному стилі з дорогими матеріалами.",
-        repairFeatures: [
-            "Ліпнина",
-            "Дерев'яні панелі",
-            "Класичні люстри",
-            "Мармурова підлога"
-        ],
-        details: {
-            id: 4,
-            square: 180,
-            duration: "3 місяці",
-            price: 60000,
-            imageUrl: designClassicHouse,
-        },
+  },
+  {
+    id: 4,
+    title: "Klasyczny dom podmiejski",
+    description: "Wnętrze w wyważonym klasycznym stylu z drogimi materiałami.",
+    repairFeatures: [
+      "Stiuki",
+      "Drewniane panele",
+      "Klasyczne żyrandole",
+      "Podłoga marmurowa"
+    ],
+    details: {
+      id: 4,
+      square: 180,
+      duration: "3 miesiące",
+      price: 60000,
+      imageUrl: designClassicHouse,
     },
+  },
 ];

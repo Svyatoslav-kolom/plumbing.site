@@ -21,7 +21,7 @@ export default function Step4({ formData, setFormData }: Step4Props) {
         mb={4}
         textAlign={"center"}
       >
-        Укажите детали ремонта
+        Podaj szczegóły remontu
       </Text>
 
       <VStack
@@ -41,7 +41,7 @@ export default function Step4({ formData, setFormData }: Step4Props) {
         >
 
           <Text mb={2} alignSelf="flex-start">
-            Нужен ли демонтаж?
+            Czy potrzebna jest rozbiórka?
           </Text>
 
           <RadioGroup.Root
@@ -66,7 +66,7 @@ export default function Step4({ formData, setFormData }: Step4Props) {
                       cursor={"pointer"}
                     />
                     <RadioGroup.ItemText textStyle="text">
-                      {val === 'yes' ? 'да' : 'нет'}
+                      {val === 'yes' ? 'tak' : 'nie'}
                     </RadioGroup.ItemText>
                   </RadioGroup.Item>
                 );
@@ -75,7 +75,6 @@ export default function Step4({ formData, setFormData }: Step4Props) {
           </RadioGroup.Root>
 
         </VStack>
-
 
         <VStack
           textStyle="text"
@@ -89,7 +88,7 @@ export default function Step4({ formData, setFormData }: Step4Props) {
         >
 
           <Text mb={2} alignSelf="flex-start">
-            Нужно ли выравнивать стены?
+            Czy trzeba wyrównać ściany?
           </Text>
 
           <RadioGroup.Root
@@ -114,7 +113,7 @@ export default function Step4({ formData, setFormData }: Step4Props) {
                       cursor={"pointer"}
                     />
                     <RadioGroup.ItemText textStyle="text">
-                      {val === 'yes' ? 'да' : 'нет'}
+                      {val === 'yes' ? 'tak' : 'nie'}
                     </RadioGroup.ItemText>
                   </RadioGroup.Item>
                 );
@@ -123,6 +122,6 @@ export default function Step4({ formData, setFormData }: Step4Props) {
           </RadioGroup.Root>
         </VStack>
       </VStack>
-    </Box >
+    </Box>
   );
 }

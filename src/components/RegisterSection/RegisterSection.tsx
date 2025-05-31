@@ -8,73 +8,71 @@ interface Props {
 export const RegisterSection: React.FC<Props> = ({ onOpenRegister }) => (
   <Box
     py={{ base: "30px", md: "70px" }}
-    display={"flex"}
-    flexDirection={"row"}
-    justifyContent={"space-between"}
+    display="flex"
+    flexDirection="row"
+    justifyContent="space-between"
   >
+    {/* Бічна форма для десктопу */}
     <Box
       bg="blocks.main"
-      pt={"50px"}
-      pb={"25px"}
-      px={"50px"}
+      pt="50px"
+      pb="25px"
+      px="50px"
       borderRadius="15px"
-      w={"400px"}
-
+      w="400px"
       display={{ base: "none", md: "block" }}
     >
-      <VStack gap={"30px"}>
+      <VStack gap="30px">
         <Input
-          placeholder="Ваше имя"
+          placeholder="Twoje imię"
           bg="blocks.secondary"
           borderRadius="md"
           _placeholder={{ color: "text.grayDark" }}
-          height={"60px"}
+          height="60px"
         />
 
         <Input
-          placeholder="Номер телефона"
+          placeholder="Numer telefonu"
           bg="blocks.secondary"
           borderRadius="md"
           _placeholder={{ color: "text.grayDark" }}
-          height={"60px"}
+          height="60px"
         />
       </VStack>
 
-      <Box
-        w={"272px"}
-        height={"53px"}
-        mt={"50px"}
-        mx={"auto"}
-      >
-        <ButtonStandart text={"Заявка"} isLargeText={true} />
+      <Box w="272px" height="53px" mt="50px" mx="auto">
+        <ButtonStandart text="Zgłoszenie" isLargeText={true} />
       </Box>
-
     </Box>
 
+    {/* Основний текст та кнопка для мобільних */}
     <VStack
-      w={"600px"}
+      w="600px"
       gap={4}
-      color={"text.white"}
-      mt={"20px"}
+      color="text.white"
+      mt="20px"
       maxW={{ base: "100%", md: "530px", xl: "100%" }}
     >
-      <Heading textStyle={"pageTitle"} fontWeight={400}>
-        ОСТАВТЕ ЗАЯВКУ ПРЯМО СЕЙЧАС
+      <Heading textStyle="pageTitle" fontWeight={400}>
+        ZŁÓŻ ZGŁOSZENIE JUŻ TERAZ
       </Heading>
 
       <Text>
-        Оставьте заявку на бесплатную консультацию, мы свяжемся с вами в течении 30 минут и отправим замерщика на дом.
+        Zostaw zgłoszenie na bezpłatną konsultację, skontaktujemy się z Tobą w ciągu 30 minut i wyślemy fachowca do domu.
       </Text>
 
       <Box
-        w={"272px"}
-        height={"53px"}
+        w="272px"
+        height="53px"
         mt={{ base: "40px", md: "50px" }}
-        mx={"auto"}
+        mx="auto"
         display={{ base: "block", md: "none" }}
-
       >
-        <ButtonStandart text={"Заявка"} isLargeText={true} onClick={() => onOpenRegister(true)} />
+        <ButtonStandart
+          text="Zgłoszenie"
+          isLargeText={true}
+          onClick={() => onOpenRegister(true)}
+        />
       </Box>
     </VStack>
   </Box>

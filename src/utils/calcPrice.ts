@@ -23,7 +23,7 @@ export function calculatePrices(data: RepairFormData) {
   const baseRepairMultiplier = REPAIR_FACTORS[data.repairType || "cosmetic"];
   const housingMultiplier = HOUSING_FACTORS[data.housingType || "new"];
 
-  // Якщо дизайнерський ремонт — додаємо множник стилю
+  // Якщо дизайнерський ремонт — враховуємо множник стилю інтер'єру
   const interiorStyleMultiplier =
     data.repairType === "designer"
       ? INTERIOR_STYLE_FACTORS[data.interiorStyle || "minimalism"] || 1
@@ -49,30 +49,38 @@ export function calculatePrices(data: RepairFormData) {
 
     breakdown: [
       {
-        label: "Площа (м²)",
+        label: "Powierzchnia (m²)", // Площа
         value: area,
         priceImpact: Math.round(BASE_WORK * area + BASE_MATERIAL * area),
       },
       {
-        label: "Кількість кімнат",
+        label: "Liczba pokoi", // Кількість кімнат
         value: rooms,
         priceImpact: Math.round(BASE_MATERIAL * area * rooms),
       },
       {
-        label: "Висота стелі",
-        value: `${data.ceilingHeight} м (${ceilingMultiplier}x)`,
+        label: "Wysokość sufitu", // Висота стелі
+        value: `${data.ceilingHeight} m (${ceilingMultiplier}x)`,
         priceImpact: Math.round(workBase * (ceilingMultiplier - 1)),
       },
       {
-        label: "Тип ремонту",
+        label: "Rodzaj remontu", // Тип ремонту
         value: REPAIR_LABELS[data.repairType || "cosmetic"],
         priceImpact: Math.round(workBase * ceilingMultiplier * (baseRepairMultiplier - 1)),
       },
       ...(data.repairType === "designer"
         ? [
             {
-              label: "Стиль інтерʼєру",
-              value: data.interiorStyle || "Мінімалізм",
+              label: "Styl wnętrza", // Стиль інтер'єру
+              value: data.interiorStyle
+                ? // Якщо стиль відомий — перекладаємо польською (з вашого словника)
+                  {
+                    minimalism: "Minimalizm",
+                    loft: "Loft",
+                    classic: "Klasyczny",
+                    "hi-tech": "Hi-tech",
+                  }[data.interiorStyle] || "Minimalizm"
+                : "Minimalizm",
               priceImpact: Math.round(
                 workBase * ceilingMultiplier * baseRepairMultiplier * (interiorStyleMultiplier - 1)
               ),
@@ -80,18 +88,18 @@ export function calculatePrices(data: RepairFormData) {
           ]
         : []),
       {
-        label: "Тип житла",
+        label: "Typ mieszkania", // Тип житла
         value: HOUSING_LABELS[data.housingType || "new"],
         priceImpact: Math.round(materialBase * (housingMultiplier - 1)),
       },
       {
-        label: "Демонтаж",
-        value: data.demolition ? "Так" : "Ні",
+        label: "Rozbiórka", // Демонтаж
+        value: data.demolition ? "Tak" : "Nie",
         priceImpact: demolitionCost,
       },
       {
-        label: "Вирівнювання стін",
-        value: data.wallAlignment ? "Так" : "Ні",
+        label: "Wyrównanie ścian", // Вирівнювання стін
+        value: data.wallAlignment ? "Tak" : "Nie",
         priceImpact: wallAlignmentCost,
       },
     ],

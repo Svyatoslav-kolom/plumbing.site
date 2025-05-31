@@ -1,3 +1,4 @@
+// Інтерфейс для учасника команди
 export interface TeamMember {
   id: number;
   name: string;
@@ -11,49 +12,50 @@ import designer from "../../assets/Team/designer.jpg";
 import prorab from "../../assets/Team/prorab.png";
 import rucoyVoditel from "../../assets/Team/rucoyVoditel.png";
 
+// Перекладено на польську
 export const teamMembers: TeamMember[] = [
   {
     id: 1,
-    name: "Ім’я Прізвище",
-    position: "Прораб",
+    name: "Marek Kowalski",
+    position: "Kierownik budowy",
     avatarUrl: prorab,
     description: [
-      "Координує роботу бригади на об'єкті.",
-      "Контролює виконання будівельних норм та техніки безпеки.",
-      "Вирішує поточні питання на будівництві."
+      "Koordynuje pracę zespołu na placu budowy.",
+      "Nadzoruje zgodność z normami budowlanymi i zasadami BHP.",
+      "Rozwiązuje bieżące problemy na budowie."
     ],
   },
   {
     id: 2,
-    name: "Ім’я Прізвище",
-    position: "Руководитель інженерної служби",
+    name: "Magdalena Nowak",
+    position: "Kierowniczka działu inżynieryjnego",
     avatarUrl: ingener,
     description: [
-      "Проводить технічний нагляд та контроль якості робіт.",
-      "Організовує планові та позапланові перевірки.",
-      "Відповідає за дотримання технічної документації."
+      "Prowadzi nadzór techniczny i kontrolę jakości prac.",
+      "Organizuje planowe i doraźne kontrole.",
+      "Odpowiada za zgodność z dokumentacją techniczną."
     ],
   },
   {
     id: 3,
-    name: "Ім’я Прізвище",
-    position: "Дизайнер",
+    name: "Anna Zielińska",
+    position: "Projektantka wnętrz",
     avatarUrl: designer,
     description: [
-      "Розробляє інтер’єрні рішення відповідно до стилю клієнта.",
-      "Створює 3D-візуалізації приміщень.",
-      "Підбирає матеріали, меблі та декор."
+      "Opracowuje rozwiązania aranżacyjne zgodne ze stylem klienta.",
+      "Tworzy wizualizacje 3D pomieszczeń.",
+      "Dobiera materiały, meble i dekoracje."
     ],
   },
   {
     id: 4,
-    name: "Ім’я Прізвище",
-    position: "Руководитель компанії",
+    name: "Piotr Wiśniewski",
+    position: "Dyrektor firmy",
     avatarUrl: rucoyVoditel,
     description: [
-      "Керує всіма бізнес-процесами компанії.",
-      "Спілкується з клієнтами та укладає договори.",
-      "Контролює бюджет та строки виконання проєктів."
+      "Zarządza wszystkimi procesami biznesowymi firmy.",
+      "Kontaktuje się z klientami i podpisuje umowy.",
+      "Kontroluje budżet i terminy realizacji projektów."
     ],
   },
 ];

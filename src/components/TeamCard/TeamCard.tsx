@@ -87,7 +87,7 @@ export const TeamCard: React.FC<TeamCardProps> = ({ member }) => {
 
       <Box height={"43px"} w={"133px"} mt={"auto"} alignSelf={"center"}>
         <ButtonStandart
-          text={expanded ? "Кратко" : "Детальней"}
+          text={expanded ? "Krótko" : "Szczegółowo"}
           onClick={() => setExpanded(!expanded)}
         />
       </Box>

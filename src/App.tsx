@@ -1,8 +1,18 @@
-import { Box } from '@chakra-ui/react'
-import './App.css'
-import { Head } from './components/Head'
-import Header from './components/Header/Header'
-import BgImage from "./assets/Backgrounds/BackgroundHead.png";
+import { Box } from '@chakra-ui/react';
+import { useState } from 'react';
+
+import './App.css';
+
+import BgImage from './assets/Backgrounds/BackgroundHead.png';
+
+// Components
+import { Head } from './components/Head';
+import Header from './components/Header/Header';
+import { MobileHeader } from './components/MobileHeader';
+import { MobileHeaderMenu } from './components/MobileHeaderMenu';
+import { FadeWrapper } from './components/FadeWrapper';
+import { RegisterBlock } from './components/RegisterBlock';
+import { Contacts } from './components/Contacts';
 import { TypesOfRepairs } from './components/TypesOfRepairs';
 import { StagesOfWork } from './components/StagesOfWork';
 import { RegisterSection } from './components/RegisterSection';
@@ -12,14 +22,8 @@ import CalculatorSection from './components/CalculatorSection/CalculatorSection'
 import { Footer } from './components/Footer';
 import { PrivacyPolicy } from './components/PrivacyPolicyModal';
 import { TermsOfService } from './components/TermsOfServiceModal';
-import { useState } from 'react';
-import { FadeWrapper } from './components/FadeWrapper';
-import { RegisterBlock } from './components/RegisterBlock';
-import { Contacts } from './components/Contacts';
-import { MobileHeader } from './components/MobileHeader';
-import { MobileHeaderMenu } from './components/MobileHeaderMenu';
-import { Toaster } from './components/ui/toaster';
 import { ScrollToTopButton } from './components/ScrollToTopButton';
+import { Toaster } from './components/ui/toaster';
 
 function App() {
   const [isTermsOpen, setIsTermsOpen] = useState(false);
@@ -28,24 +32,18 @@ function App() {
   const [isContactsOpen, setIsContactsOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const onClosePrivacy = () => setIsPrivacyOpen(false);
-  const onCloseTerms = () => setIsTermsOpen(false);
-  const onCloseRegister = () => setIsRegisterOpen(false);
-  const onCloseContacts = () => setIsContactsOpen(false);
-  const onCloseMenu = () => setIsMenuOpen(false);
-
   return (
-    <Box
-    // zoom={0.9}
-    >
-      <Box display={{ base: "none", md: "block" }}>
+    <Box>
+      {/* Desktop Header */}
+      <Box display={{ base: 'none', md: 'block' }}>
         <Header
           onOpenRegister={setIsRegisterOpen}
           onOpenContacts={setIsContactsOpen}
         />
       </Box>
 
-      <Box display={{ base: "block", md: "none" }}>
+      {/* Mobile Header */}
+      <Box display={{ base: 'block', md: 'none' }}>
         <MobileHeader
           onOpenContacts={setIsContactsOpen}
           onOpenRegister={setIsRegisterOpen}
@@ -54,43 +52,31 @@ function App() {
         />
       </Box>
 
+      {/* Modals and Overlays */}
       {isRegisterOpen && (
-        <FadeWrapper onClose={onCloseRegister}>
-          <RegisterBlock onClose={onCloseRegister} />
+        <FadeWrapper onClose={() => setIsRegisterOpen(false)}>
+          <RegisterBlock onClose={() => setIsRegisterOpen(false)} />
         </FadeWrapper>
       )}
 
       {isContactsOpen && (
-        <FadeWrapper onClose={onCloseContacts}>
-          <Contacts onClose={onCloseContacts} />
+        <FadeWrapper onClose={() => setIsContactsOpen(false)}>
+          <Contacts onClose={() => setIsContactsOpen(false)} />
         </FadeWrapper>
       )}
 
-      {isMenuOpen && (
-        <MobileHeaderMenu onCloseMenu={onCloseMenu} />
-      )}
+      {isMenuOpen && <MobileHeaderMenu onCloseMenu={() => setIsMenuOpen(false)} />}
 
-      <Box
-        pt={{ base: "30px", md: "100px" }}
-        bgImage={`url(${BgImage})`}
-        bgSize="cover"
-      >
+      {/* Main Sections */}
+      <Box pt={{ base: '30px', md: '100px' }} bgImage={`url(${BgImage})`} bgSize="cover">
         <Head />
       </Box>
 
-      <Box
-        mx={{ base: "30px", md: 0 }}
-        id="services"
-        mt={{ base: "30px", md: "60px" }}
-      >
+      <Box mx={{ base: '30px', md: 0 }} id="services" mt={{ base: '30px', md: '60px' }}>
         <TypesOfRepairs />
       </Box>
 
-      <Box
-        mx={{ base: "30px", md: "100px" }}
-        id="workflow"
-        mt={{ base: "30px", md: "60px" }}
-      >
+      <Box mx={{ base: '30px', md: '100px' }} id="workflow" mt={{ base: '30px', md: '60px' }}>
         <StagesOfWork />
       </Box>
 
@@ -105,7 +91,7 @@ function App() {
         <RegisterSection onOpenRegister={setIsRegisterOpen} />
       </Box>
 
-      <Box mx={{ base: "0", md: "100px" }} id="portfolio">
+      <Box mx={{ base: 0, md: '100px' }} id="portfolio">
         <DoneRepairs />
       </Box>
 
@@ -125,38 +111,31 @@ function App() {
         <Team />
       </Box>
 
-      <Box
-        mx={{ base: 0, md: "100px" }}
-        mt={{ base: "30px", xl: "150px" }}
-        id='calculator'
-      >
+      <Box mx={{ base: 0, md: '100px' }} mt={{ base: '30px', xl: '150px' }} id="calculator">
         <CalculatorSection />
       </Box>
 
-      <Box mt={"150px"}>
+      <Box mt="150px">
         <Footer setIsPrivacyOpen={setIsPrivacyOpen} setIsTermsOpen={setIsTermsOpen} />
       </Box>
 
+      {/* Modals */}
       {isPrivacyOpen && (
-        <FadeWrapper onClose={onClosePrivacy}>
-          <PrivacyPolicy onClose={onClosePrivacy} />
+        <FadeWrapper onClose={() => setIsPrivacyOpen(false)}>
+          <PrivacyPolicy onClose={() => setIsPrivacyOpen(false)} />
         </FadeWrapper>
       )}
 
       {isTermsOpen && (
-        <FadeWrapper onClose={onCloseTerms}>
-          <TermsOfService onClose={onCloseTerms} />
+        <FadeWrapper onClose={() => setIsTermsOpen(false)}>
+          <TermsOfService onClose={() => setIsTermsOpen(false)} />
         </FadeWrapper>
       )}
 
-      <Box>
-        <ScrollToTopButton />
-      </Box>
-
-
+      <ScrollToTopButton />
       <Toaster />
     </Box>
-  )
+  );
 }
 
-export default App
+export default App;

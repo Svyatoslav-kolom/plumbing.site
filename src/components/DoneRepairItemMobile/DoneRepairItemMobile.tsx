@@ -1,12 +1,11 @@
 import { Box, Heading, HStack, Image, SimpleGrid, Stack, Text } from "@chakra-ui/react";
 import type { FC } from "react";
-import type { RepairDetails } from "../DoneRepairs/completedRepairs";
 import defaultImage from "../../assets/images/CompletedRepairs/Default.png";
 import zlotyIcon from "../../assets/icons/zloty.svg";
 import calendarIcon from "../../assets/icons/calendar.svg";
 import squareIcon from "../../assets/icons/square.svg";
 import { ButtonStandart } from "../ButtonStandart";
-
+import type { RepairDetails } from "../../types/repairsTypes";
 
 interface Props {
   title: string;
@@ -23,14 +22,16 @@ export const DoneRepairItemMobile: FC<Props> = ({
   repairDetails,
   repairFeatures
 }) => {
+  // Обробник помилки завантаження зображення — показує дефолтне зображення
   const fallbackImage = (e: React.SyntheticEvent<HTMLImageElement>) => {
     e.currentTarget.src = defaultImage;
   };
 
+  // Масив з інформаційними елементами для відображення ціни, тривалості, площі
   const infoItems = [
     {
       icon: zlotyIcon,
-      getText: (price: number) => `${price} ZL`,
+      getText: (price: number) => `${price} ZŁ`,
       key: "price" as const,
     },
     {
@@ -40,7 +41,7 @@ export const DoneRepairItemMobile: FC<Props> = ({
     },
     {
       icon: squareIcon,
-      getText: (square: number) => `${square} м²`,
+      getText: (square: number) => `${square} m²`,
       key: "square" as const,
     },
   ];
@@ -62,7 +63,7 @@ export const DoneRepairItemMobile: FC<Props> = ({
 
       <Image
         src={image}
-        alt="repair"
+        alt="naprawa" // alt польською — "ремонт"
         objectFit="cover"
         w="100%"
         onError={fallbackImage}
@@ -102,7 +103,9 @@ export const DoneRepairItemMobile: FC<Props> = ({
         })}
       </Stack>
 
-      <Text textStyle="text" mt={"20px"}>{description}</Text>
+      <Text textStyle="text" mt={"20px"}>
+        {description}
+      </Text>
 
       <SimpleGrid
         columns={{ base: 1, md: 2 }}
@@ -129,8 +132,8 @@ export const DoneRepairItemMobile: FC<Props> = ({
       </SimpleGrid>
 
       <Box w={"100%"} height={"64px"} mt={"20px"}>
-        <ButtonStandart text={"Рассчитать стоимость похожего проекта"} />
+        <ButtonStandart text={"Oblicz koszt podobnego projektu"} />
       </Box>
     </Box>
   );
-}
+};

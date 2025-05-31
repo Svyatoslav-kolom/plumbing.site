@@ -8,43 +8,43 @@ import rough from "../../assets/images/TypesOfRepairs/rough.jpg";
 export const repairs: RepairItem[] = [
   {
     id: "design",
-    title: "Дизайнерский ремонт",
+    title: "Remont designerski",
     image: design,
-    description: "Дизайнерский ремонт — решение под ключ, отражённое в разработанном дизайн-проекте. Точное исполнение по проекту.",
+    description: "Remont designerski – kompleksowe rozwiązanie oparte na opracowanym projekcie wnętrza. Dokładne wykonanie zgodnie z projektem.",
     price: 13500,
     repairTime: 3,
     additionalInformation: {
       details: [
         {
-          category: "Демонтаж",
+          category: "Demontaż",
           items: [
-            "Старой проводки",
-            "Перегородок",
-            "Напольного покрытия",
-            "Потолков",
-            "Стяжки",
-            "Труб ГВС, ХВС, канализации",
-            "Дверей и окон"
+            "Stara instalacja elektryczna",
+            "Ściany działowe",
+            "Podłogi",
+            "Sufity",
+            "Wylewki",
+            "Rury CWU, ZWU, kanalizacja",
+            "Drzwi i okna"
           ]
         },
         {
-          category: "Работа строго по дизайн-проекту",
+          category: "Prace zgodnie z projektem wnętrza",
           items: [
-            "Обмерный план, 3 варианта планировки, пакет рабочих чертежей",
-            "Проект электромонтажных и сантехнических работ",
-            "Развертки помещений",
-            "3Д визуализации",
-            "Подбор строительных и отделочных материалов"
+            "Plan pomieszczeń, 3 warianty układu, pakiet rysunków wykonawczych",
+            "Projekt instalacji elektrycznych i sanitarnych",
+            "Rzuty pomieszczeń",
+            "Wizualizacje 3D",
+            "Dobór materiałów budowlanych i wykończeniowych"
           ]
         },
         {
-          category: "Черновые работы",
+          category: "Prace przygotowawcze",
           items: [
-            "Монтаж труб ГВС, ХВС, канализации",
-            "Разводка электропроводки",
-            "Штукатурка стен и потолка",
-            "Стяжка пола и наливной пол",
-            "Перепланировка"
+            "Montaż rur CWU, ZWU, kanalizacji",
+            "Instalacja elektryczna",
+            "Tynkowanie ścian i sufitów",
+            "Wylewki i posadzki samopoziomujące",
+            "Przebudowa pomieszczeń"
           ]
         }
       ]
@@ -52,44 +52,44 @@ export const repairs: RepairItem[] = [
   },
   {
     id: "cosmetic",
-    title: "Косметический ремонт",
+    title: "Remont kosmetyczny",
     image: cosmetic,
-    description: "Подходит, чтобы полностью освежить квартиру: заменить трубы, электрику, выровнять стены, покрасить или поклеить обои, уложить плитку и заменить сантехнику в ванной.",
+    description: "Idealny do odświeżenia mieszkania: wymiana rur, instalacji elektrycznej, wyrównanie ścian, malowanie lub tapetowanie, układanie płytek oraz wymiana armatury łazienkowej.",
     price: 4500,
     repairTime: 1.5,
     additionalInformation: {
       details: [
         {
-          category: "Демонтаж",
+          category: "Demontaż",
           items: [
-            "Старой проводки",
-            "Перегородок",
-            "Напольного покрытия",
-            "Потолков",
-            "Стяжки",
-            "Труб ГВС, ХВС, канализации",
-            "Дверей и окон"
+            "Stara instalacja elektryczna",
+            "Ściany działowe",
+            "Podłogi",
+            "Sufity",
+            "Wylewki",
+            "Rury CWU, ZWU, kanalizacja",
+            "Drzwi i okna"
           ]
         },
         {
-          category: "Чистовые работы",
+          category: "Prace wykończeniowe",
           items: [
-            "Покраска стен и потолка",
-            "Поклейка обоев или покраска стен",
-            "Монтаж напольных покрытий",
-            "Монтаж натяжного потолка",
-            "Укладка плитки",
-            "Монтаж электроточек",
-            "Вывоз стройматериалов и сдача объекта"
+            "Malowanie ścian i sufitów",
+            "Tapetowanie lub malowanie ścian",
+            "Montaż podłóg",
+            "Montaż sufitów napinanych",
+            "Układanie płytek",
+            "Montaż punktów elektrycznych",
+            "Wywóz materiałów budowlanych i sprzątanie"
           ]
         },
         {
-          category: "Черновые работы",
+          category: "Prace przygotowawcze",
           items: [
-            "Монтаж труб ГВС, ХВС, канализации",
-            "Разводка электропроводки",
-            "Штукатурка стен и потолка",
-            "Стяжка пола и наливной пол"
+            "Montaż rur CWU, ZWU, kanalizacji",
+            "Instalacja elektryczna",
+            "Tynkowanie ścian i sufitów",
+            "Wylewki i posadzki samopoziomujące"
           ]
         }
       ]
@@ -97,44 +97,44 @@ export const repairs: RepairItem[] = [
   },
   {
     id: "capital",
-    title: "Капитальный ремонт",
+    title: "Remont kapitalny",
     image: capital,
-    description: "Подходит, чтобы полностью отремонтировать квартиру под ключ: заменить трубы, электрику, выровнять стены, покрасить или поклеить обои, уложить плитку и заменить сантехнику в ванной.",
+    description: "Idealny do całkowitego remontu mieszkania pod klucz: wymiana rur, instalacji elektrycznej, wyrównanie ścian, malowanie lub tapetowanie, układanie płytek oraz wymiana armatury łazienkowej.",
     price: 9500,
     repairTime: 2.5,
     additionalInformation: {
       details: [
         {
-          category: "Демонтаж",
+          category: "Demontaż",
           items: [
-            "Старой проводки",
-            "Перегородок",
-            "Напольного покрытия",
-            "Потолков",
-            "Стяжки",
-            "Труб ГВС, ХВС, канализации",
-            "Дверей и окон"
+            "Stara instalacja elektryczna",
+            "Ściany działowe",
+            "Podłogi",
+            "Sufity",
+            "Wylewki",
+            "Rury CWU, ZWU, kanalizacja",
+            "Drzwi i okna"
           ]
         },
         {
-          category: "Чистовые работы",
+          category: "Prace wykończeniowe",
           items: [
-            "Покраска стен и потолка",
-            "Поклейка обоев или покраска стен",
-            "Монтаж напольных покрытий",
-            "Монтаж натяжного потолка",
-            "Укладка плитки",
-            "Монтаж электроточек",
-            "Клининг помещения после ремонта"
+            "Malowanie ścian i sufitów",
+            "Tapetowanie lub malowanie ścian",
+            "Montaż podłóg",
+            "Montaż sufitów napinanych",
+            "Układanie płytek",
+            "Montaż punktów elektrycznych",
+            "Sprzątanie po remoncie"
           ]
         },
         {
-          category: "Черновые работы",
+          category: "Prace przygotowawcze",
           items: [
-            "Монтаж труб ГВС, ХВС, канализации",
-            "Разводка электропроводки",
-            "Штукатурка стен и потолка",
-            "Стяжка пола и наливной пол"
+            "Montaż rur CWU, ZWU, kanalizacji",
+            "Instalacja elektryczna",
+            "Tynkowanie ścian i sufitów",
+            "Wylewki i posadzki samopoziomujące"
           ]
         }
       ]
@@ -142,33 +142,33 @@ export const repairs: RepairItem[] = [
   },
   {
     id: "rough",
-    title: "Черновой ремонт",
+    title: "Remont przygotowawczy",
     image: rough,
-    description: "Предусматривает выполнение работ по подготовке комнат к финишной и чистовой отделке.",
+    description: "Zakłada wykonanie prac przygotowawczych pomieszczeń do wykończenia i prac końcowych.",
     price: 5700,
     repairTime: 2,
     additionalInformation: {
       details: [
         {
-          category: "Демонтаж",
+          category: "Demontaż",
           items: [
-            "Старой проводки",
-            "Перегородок",
-            "Напольного покрытия",
-            "Потолков",
-            "Стяжки",
-            "Труб ГВС, ХВС, канализации",
-            "Дверей"
+            "Stara instalacja elektryczna",
+            "Ściany działowe",
+            "Podłogi",
+            "Sufity",
+            "Wylewki",
+            "Rury CWU, ZWU, kanalizacja",
+            "Drzwi"
           ]
         },
         {
-          category: "Черновые работы",
+          category: "Prace przygotowawcze",
           items: [
-            "Монтаж труб ГВС, ХВС, канализации",
-            "Разводка электропроводки",
-            "Штукатурка стен и потолка",
-            "Стяжка пола и наливной пол",
-            "Клининг помещения"
+            "Montaż rur CWU, ZWU, kanalizacji",
+            "Instalacja elektryczna",
+            "Tynkowanie ścian i sufitów",
+            "Wylewki i posadzki samopoziomujące",
+            "Sprzątanie pomieszczeń"
           ]
         }
       ]

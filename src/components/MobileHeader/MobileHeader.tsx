@@ -40,7 +40,7 @@ export const MobileHeader: React.FC<Props> = ({
 
   return (
     <Box>
-      {/* Верхній блок */}
+      {/* Верхній блок хедера мобільної версії */}
       <HStack
         height={"90px"}
         bg="layout.header"
@@ -54,7 +54,7 @@ export const MobileHeader: React.FC<Props> = ({
 
         <HStack gap={"10px"}>
           <Link _hover={{ textDecoration: "none", bg: "accent.dark" }} href="#calculator">
-            <Image src={calculatorIcon} boxSize="40px" />
+            <Image src={calculatorIcon} boxSize="40px" alt="Kalkulator" />
           </Link>
 
           <Button
@@ -62,7 +62,7 @@ export const MobileHeader: React.FC<Props> = ({
             onClick={() => onOpenContacts(true)}
             p={0}
           >
-            <Image src={contactsIcon} boxSize="40px" />
+            <Image src={contactsIcon} boxSize="40px" alt="Kontakt" />
           </Button>
 
           <Button
@@ -70,12 +70,12 @@ export const MobileHeader: React.FC<Props> = ({
             onClick={() => onOpenMenu(!isMenuOpen)}
             p={0}
           >
-            <Image src={icon} w="40px" />
+            <Image src={icon} w="40px" alt="Menu" />
           </Button>
         </HStack>
       </HStack>
 
-      {/* Нижній блок */}
+      {/* Нижній блок з перемикачем режиму та кнопкою заявки */}
       <HStack
         height={"60px"}
         bg="layout.background"
@@ -86,7 +86,7 @@ export const MobileHeader: React.FC<Props> = ({
       >
         <Flex align="center" gap={2}>
           <Text color={isDesign ? "text.grayDark" : "text.white"}>
-            Ремонт
+            Remont
           </Text>
 
           <CustomSwitch
@@ -95,12 +95,12 @@ export const MobileHeader: React.FC<Props> = ({
           />
 
           <Text color={isDesign ? "text.white" : "text.grayDark"}>
-            Дизайн
+            Projekt
           </Text>
         </Flex>
 
         <Box height={"30px"}>
-          <ButtonStandart text={"Заявка"} onClick={() => onOpenRegister(true)} />
+          <ButtonStandart text={"Zgłoszenie"} onClick={() => onOpenRegister(true)} />
         </Box>
       </HStack>
     </Box>
