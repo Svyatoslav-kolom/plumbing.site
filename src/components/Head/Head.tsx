@@ -21,7 +21,7 @@ export const Head = () => {
   const handleSwitchChange = (val: boolean) => {
     setMode(val ? "design" : "renovation");
   };
-  
+
   return (
     <Stack
       px={{ base: "30px", md: "100px" }}
@@ -46,7 +46,7 @@ export const Head = () => {
           gap={{ base: 0, md: 4 }}
           w={"100%"}
         >
-          <Text textStyle="blockTitle" color="text.grayDark" mr={2}>
+          <Text textStyle="blockTitle" color={isDesign ? "text.grayDark" : "text.black"}>
             Ремонт
           </Text>
 
@@ -60,7 +60,7 @@ export const Head = () => {
             />
           </Box>
 
-          <Text textStyle="blockTitle" color="text.grayDark">
+          <Text textStyle="blockTitle" color={isDesign ? "text.black" : "text.grayDark"}>
             Дизайн
           </Text>
         </Flex>

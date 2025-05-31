@@ -30,6 +30,7 @@ export const TypesOfRepairs = () => {
         textStyle="pageTitle"
         maxW="800px"
         ml={{ base: "30px", md: "100px" }}
+        mb={"20px"}
       >
         Виды ремонта, которые мы выполняем
       </Heading>
@@ -37,7 +38,7 @@ export const TypesOfRepairs = () => {
       {isMobile ? (
         <VStack
           gap={6}
-          px={{base: 0, md: 4}}
+          px={{ base: 0, md: 4 }}
         >
           {repairs.map((repair, index) => (
             <RepairItem
@@ -81,11 +82,12 @@ export const TypesOfRepairs = () => {
               aria-label="Попередній слайд"
               position="absolute"
               top="50%"
-              left="22%"
+              left="20%"
               transform="scaleX(-1)"
             >
               <Image src={ArrowRight} />
             </Box>
+
             <Box
               as="button"
               onClick={scrollNext}
@@ -93,7 +95,7 @@ export const TypesOfRepairs = () => {
               aria-label="Наступний слайд"
               position="absolute"
               top="50%"
-              right="22%"
+              right="20%"
             >
               <Image src={ArrowRight} />
             </Box>

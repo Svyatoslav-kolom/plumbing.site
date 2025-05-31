@@ -85,12 +85,18 @@ export const MobileHeader: React.FC<Props> = ({
         justify={"space-between"}
       >
         <Flex align="center" gap={2}>
-          <Text color="text.white">Ремонт</Text>
+          <Text color={isDesign ? "text.grayDark" : "text.white"}>
+            Ремонт
+          </Text>
+
           <CustomSwitch
             checked={isDesign}
             onChange={handleSwitchChange}
           />
-          <Text color="text.white">Дизайн</Text>
+
+          <Text color={isDesign ? "text.white" : "text.grayDark"}>
+            Дизайн
+          </Text>
         </Flex>
 
         <Box height={"30px"}>

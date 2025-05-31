@@ -170,13 +170,20 @@ const Header: React.FC<HeaderProps> = ({ onOpenRegister, onOpenContacts }) => {
 
 
           <Flex align="center" gap={2}>
-            <Text color="text.white">Ремонт</Text>
+            <Text color="text.white">
+              Ремонт
+            </Text>
+
             <CustomSwitch
               checked={isDesign}
               onChange={handleSwitchChange}
             />
-            <Text color="text.white">Дизайн</Text>
+
+            <Text color="text.white">
+              Дизайн
+            </Text>
           </Flex>
+
         </Flex>
       </Flex>
     </Box>
