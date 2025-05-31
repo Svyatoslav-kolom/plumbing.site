@@ -62,8 +62,10 @@ export const DoneRepairDetails: FC<Props> = ({
     </VStack>
 
     {/* Кнопка для розрахунку вартості */}
-    <Box w={"100%"} height={"64px"}>
-      <ButtonStandart text={"Oblicz koszt podobnego projektu"} />
+    <Box w="100%" height="64px">
+      <a href="#calculator" style={{ textDecoration: 'none' }}>
+        <ButtonStandart text="Oblicz koszt podobnego projektu" />
+      </a>
     </Box>
   </VStack>
 );
